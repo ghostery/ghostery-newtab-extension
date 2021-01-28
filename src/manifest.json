@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "newtab@ghostery.com"
+    }
+  },
+  "manifest_version": 2,
+  "name": "Ghostery New Tab",
+  "permissions": [
+    "topSites"
+  ],
+  "chrome_settings_overrides" : {
+    "homepage": "index.html"
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  }
+}
