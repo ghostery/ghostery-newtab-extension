@@ -1,0 +1,88 @@
+html, body {
+  height: 100%;
+}
+
+.bg {
+  height: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  width: var(--width);
+  width: auto;
+  max-width: var(--width);
+  z-index: 1; /* important for search bar border */
+}
+
+.logo {
+  width: 431px;
+  object-fit: contain;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo #logo {
+  height: 87px;
+}
+
+.logo #workmark {
+  margin-top: 25px;
+  height: 46px;
+}
+
+.index #searchForm {
+  margin: 25px 0px 28px 0px;
+}
+
+.tiles {
+  width: var(--width);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.top-sites {
+  display: flex;
+  height: 126px;
+}
+
+.ads {
+  visibility: hidden;
+  height: 164px;
+  margin-top: 20px;
+  width: var(--width)
+}
+
+.ads h3 {
+  text-align: center;
+  font-weight: '500';
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
+  color: #595161;
+  display: table;
+  white-space: nowrap;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.ads h3:before, .ads h3:after {
+  border-top: 2px dashed #404146;
+  content: '';
+  display: table-cell;
+  position: relative;
+  top: 0.5em;
+  width: 40%;
+}
