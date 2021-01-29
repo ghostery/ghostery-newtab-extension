@@ -49,4 +49,12 @@ html {
   .tile {
     color: var(--text) !important;
   }
+
+  .tile:hover {
+    color: white !important;
+  }
+
+  #logo {
+    opacity: 0.34 !important;
+  }
 }

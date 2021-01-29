@@ -24,22 +24,12 @@ html, body {
   z-index: 1; /* important for search bar border */
 }
 
-.logo {
-  width: 431px;
-  object-fit: contain;
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.logo #logo {
-  height: 87px;
-}
-
-.logo #workmark {
-  margin-top: 25px;
-  height: 46px;
+#logo {
+  height: 50px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  opacity: 0.64;
 }
 
 .index #searchForm {

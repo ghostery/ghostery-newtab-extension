@@ -2,10 +2,15 @@
 
 (function () {
   async function getTopSites() {
-    const sites = await browser.topSites.get({
-      newtab: true,
+    let sites = await browser.topSites.get({
       includeFavicon: true,
     });
+    if (sites.length === 0) {
+      sites = await browser.topSites.get({
+        includeFavicon: true,
+        newtab: true,
+      });
+    }
     return sites.filter(site => site.type === 'url');
   }
 
