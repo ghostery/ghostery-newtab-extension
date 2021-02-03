@@ -76,3 +76,8 @@ html, body {
   top: 0.5em;
   width: 40%;
 }
+
+.search-bar-wrapper {
+  height: 48px;
+  margin-bottom: 30px;
+}
