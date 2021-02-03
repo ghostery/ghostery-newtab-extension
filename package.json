@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "web-ext build",
-    "start": "web-ext run --pref extensions.experiments.enabled=true --pref security.sandbox.content.level=2"
+    "start": "web-ext run --pref extensions.experiments.enabled=true --pref security.sandbox.content.level=2",
+    "postinstall": "cp node_modules/hybrids/dist/hybrids.js src/libs/"
   },
   "webExt": {
     "sourceDir": "./src/",
@@ -23,5 +24,8 @@
   "homepage": "https://github.com/ghostery/ghostery-newtab-extension#readme",
   "devDependencies": {
     "web-ext": "^5.2.0"
+  },
+  "dependencies": {
+    "hybrids": "^4.3.4"
   }
 }
