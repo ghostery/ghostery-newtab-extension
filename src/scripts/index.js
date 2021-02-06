@@ -80,7 +80,7 @@
     const searchEngines = await browser.search.get();
     const glow = searchEngines.find(e => e.name === 'Ghostery Glow');
 
-    if (true || glow && glow.isDefault) {
+    if (glow && glow.isDefault) {
       const $searchBar = document.createElement('search-bar');
       const $searchBarWrapper = document.querySelector('.search-bar-wrapper');
       $searchBarWrapper.appendChild($searchBar);
