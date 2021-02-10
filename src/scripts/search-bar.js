@@ -187,8 +187,7 @@ const styles = `
   }
 
   #searchForm input:focus::placeholder {
-    color: #565b61;
-    ;
+    color: #cccfd2;
   }
 }
 
