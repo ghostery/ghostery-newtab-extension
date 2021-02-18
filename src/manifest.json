@@ -5,6 +5,7 @@
       "id": "newtab@ghostery.com"
     }
   },
+  "default_locale": "en",
   "manifest_version": 2,
   "name": "Ghostery New Tab",
   "permissions": [
