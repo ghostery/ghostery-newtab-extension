@@ -2,5 +2,25 @@
   "survey": {
     "message": "Send feedback",
     "description": "Survey link"
+  },
+  "stats_header": {
+    "message": "Ghostery stats",
+    "description": "Header over stats"
+  },
+  "stats_ads_blocked": {
+    "message": "Ads blocked",
+    "description": "Stats: ads blocked"
+  },
+  "stats_trackers_blocked": {
+    "message": "Trackers blocked",
+    "description": "Stats: trackers blocked"
+  },
+  "stats_time_saved": {
+    "message": "Time saved",
+    "description": "Stats: time saved"
+  },
+  "stats_data_anonymized": {
+    "message": "Data points anonymized",
+    "description": "Stats: data points anonymised"
   }
 }
