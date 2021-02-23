@@ -122,12 +122,13 @@ html, body {
   background:  linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.11) 100%);
   border-radius: 18px;
   padding: 13px 16px;
+  margin-top: 16px;
   display: flex;
   flex-direction: column;
 }
 
 .box label {
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight:  500;
   color: rgba(255, 255, 255, 0.8);
   flex: 1;
@@ -138,5 +139,5 @@ html, body {
   flex: 0;
   display: block;
   font-weight: 500;
-  font-size: 22px;
+  font-size: 24px;
 }
