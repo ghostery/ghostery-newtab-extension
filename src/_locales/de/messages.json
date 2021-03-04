@@ -1,0 +1,26 @@
+{
+  "survey": {
+    "message": "Feedback senden",
+    "description": "Survey link"
+  },
+  "stats_header": {
+    "message": "Ghostery-Statistik",
+    "description": "Header over stats"
+  },
+  "stats_ads_blocked": {
+    "message": "Werbung blockiert",
+    "description": "Stats: ads blocked"
+  },
+  "stats_trackers_blocked": {
+    "message": "Tracker blockiert",
+    "description": "Stats: trackers blocked"
+  },
+  "stats_time_saved": {
+    "message": "Zeit gespart",
+    "description": "Stats: time saved"
+  },
+  "stats_data_anonymized": {
+    "message": "Datenpunkte anonymisiert",
+    "description": "Stats: data points anonymised"
+  }
+}
