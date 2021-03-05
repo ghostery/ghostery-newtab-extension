@@ -110,10 +110,7 @@ html, body {
 }
 
 #privacy-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3px;
-  width: 100%;
+  width: 300px;
   height: 73.5px;
 }
 
