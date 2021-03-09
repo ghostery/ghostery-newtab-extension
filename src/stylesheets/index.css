@@ -110,34 +110,40 @@ html, body {
 }
 
 #privacy-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3px;
-  width: 100%;
-  height: 73.5px;
+  width: 446px;
+  height: 124px;
 }
 
 .box {
   color: white;
   background:  linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.11) 100%);
   border-radius: 18px;
-  padding: 13px 16px;
+  padding: 20px 48px;
   margin-top: 16px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.box h3 {
+  text-transform: uppercase;
+  font-size: 13px;
+  margin: 0;
+  font-weight: normal;
+  margin-bottom: 7px;
 }
 
 .box label {
-  font-size: 11px;
-  font-weight:  500;
-  color: rgba(255, 255, 255, 0.8);
-  flex: 1;
-  padding-bottom: 8px;
+  font-size: 19px;
+  font-weight:  600;
+  padding-bottom: 7px;
+  line-height: 1.1;
 }
 
 .box span {
-  flex: 0;
-  display: block;
-  font-weight: 500;
-  font-size: 24px;
+  font-size: 19px;
+  font-weight: 600;
+  margin-right: 6px;
+  line-height: 1.1;
 }

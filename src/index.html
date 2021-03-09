@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="/stylesheets/tiles.css" />
     <script src="/libs/hybrids.js"></script>
     <script type="module" src="/scripts/search-bar.js"></script>
+    <script type="module" src="/scripts/tab-item.js"></script>
+    <script type="module" src="/scripts/tab-group.js"></script>
+    <script type="module" src="/scripts/custom-elements.js"></script>
     <script src="/scripts/index.js"></script>
   </head>
 
@@ -27,19 +30,53 @@
     <img id="logo" src="/images/wordmark.svg" />
 
     <div class="bg">
-      <simple-counter></simple-counter>
-
       <div class="wrapper">
         <div class="search-bar-wrapper">
         </div>
         <div class="top-sites tiles top-sites-1"></div>
         <div class="top-sites tiles top-sites-2"></div>
-        <div id="privacy-stats">
-          <div class="box"><label data-i18n="stats_ads_blocked"></label><span id="ads-blocked"></span></div>
-          <div class="box"><label data-i18n="stats_trackers_blocked"></label><span id="trackers-blocked"></span></div>
-          <div class="box"><label data-i18n="stats_data_anonymized"></label><span id="data-anonymized"></span></div>
-          <div class="box"><label data-i18n="stats_time_saved"></label><span id="time-saved"></span></div>
-        </div>
+        <tab-group id="privacy-stats" hidden>
+          <tab-item>
+            <div class="box">
+              <main>
+                <h3 data-i18n="stats_header"></h3>
+                <span id="ads-blocked"></span>
+                <label data-i18n="stats_ads_blocked"></label>
+              </main>
+              <wtm-chart />
+            </div>
+          </tab-item>
+          <tab-item>
+            <div class="box">
+              <main>
+                <h3 data-i18n="stats_header"></h3>
+                <span id="trackers-blocked"></span>
+                <label data-i18n="stats_trackers_blocked"></label>
+              </main>
+              <wtm-chart />
+            </div>
+          </tab-item>
+          <tab-item>
+            <div class="box">
+              <main>
+                <h3 data-i18n="stats_header"></h3>
+                <span id="data-anonymized"></span>
+                <label data-i18n="stats_data_anonymized"></label>
+              </main>
+              <wtm-chart />
+            </div>
+          </tab-item>
+          <tab-item>
+            <div class="box">
+              <main>
+                <h3 data-i18n="stats_header"></h3>
+                <span id="time-saved"></span>
+                <label data-i18n="stats_time_saved"></label>
+              </main>
+              <wtm-chart />
+            </div>
+          </tab-item>
+        </tab-group>
       </div>
     </div>
 
