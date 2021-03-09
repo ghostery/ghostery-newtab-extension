@@ -1,6 +1,11 @@
 "use strict";
 
+
 (function () {
+  let resolveStatsLoading;
+  window.statsLoading = new Promise((resolve) => {
+    resolveStatsLoading = resolve;
+  });
   async function getTopSites() {
     let sites = await browser.topSites.get({
       includeFavicon: true,
@@ -112,12 +117,26 @@
   };
 
   async function loadStats() {
-    const { historicalDataAndSettings } = await browser.runtime.sendMessage('firefox@ghostery.com', { name: 'getStatsAndSettings' });
-    const dataPointsAnonymized = historicalDataAndSettings.cumulativeData.cookiesBlocked + historicalDataAndSettings.cumulativeData.fingerprintsRemoved;
+    const {
+      adsBlocked,
+      trackersBlocked,
+      timeSaved,
+      cookiesBlocked,
+      fingerprintsRemoved,
+      trackersDetailed,
+    } = await browser.runtime.sendMessage('firefox@ghostery.com', { name: 'getDashboardStats' });
+    const dataPointsAnonymized = cookiesBlocked + fingerprintsRemoved;
     document.getElementById('data-anonymized').innerText = dataPointsAnonymized;
-    document.getElementById('ads-blocked').innerText = historicalDataAndSettings.cumulativeData.adsBlocked;
-    document.getElementById('trackers-blocked').innerText = historicalDataAndSettings.cumulativeData.trackersBlocked;
-    document.getElementById('time-saved').innerText = formatTime(historicalDataAndSettings.cumulativeData.timeSaved);
+    document.getElementById('ads-blocked').innerText = adsBlocked;
+    document.getElementById('trackers-blocked').innerText = trackersBlocked;
+    document.getElementById('time-saved').innerText = formatTime(timeSaved);
+    resolveStatsLoading(trackersDetailed);
+
+    // Select random box
+    const boxes = document.querySelectorAll('tab-item');
+    const index = Math.floor(Math.random() * boxes.length);
+    boxes[index].active = true;
+    document.querySelector('tab-group').index = index;
   }
 
   function setup() {
