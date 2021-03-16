@@ -15,7 +15,7 @@ const WTM_CATEGORY_COLORS = {
   extensions: '#e2e781',
   comments: '#b0a8ff',
   unknown: '#959595',
-  default: '#dedede',
+  default: '#ffffff30',
   no_tracker: '#94c59e',
 };
 
@@ -95,7 +95,9 @@ function fromTrackersToChartData(allTrackers) {
   if (!trackers.length) {
     return {
       sum: 0,
-      arcs: [],
+      arcs: [
+        { start: 0, end: 360, categoryId: 'default' }
+      ],
     };
   }
 

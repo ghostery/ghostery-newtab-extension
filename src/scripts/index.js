@@ -1,11 +1,6 @@
-"use strict";
-
 
 (function () {
-  let resolveStatsLoading;
-  window.statsLoading = new Promise((resolve) => {
-    resolveStatsLoading = resolve;
-  });
+
   async function getTopSites() {
     let sites = await browser.topSites.get({
       includeFavicon: true,
@@ -92,46 +87,7 @@
     }
   }
 
-
-  const parseTime = (ms) => {
-    const s = Math.floor(ms / 1000);
-    return {
-      h: Math.floor(s / 3600),
-      m: Math.floor(s / 60) % 60,
-      s: s % 60,
-    };
-  };
-
-  const formatTime = (ms) => {
-    if (!ms) { return `0 s`; }
-
-    const time = parseTime(ms);
-    let res = '';
-
-    res = time.h > 0 ? `${time.h} h` : '';
-    res += time.m > 0 ? ` ${time.m} m` : '';
-    if (res === '') {
-      res = `${time.s} s`;
-    }
-    return res.trim();
-  };
-
   async function loadStats() {
-    const {
-      adsBlocked,
-      trackersBlocked,
-      timeSaved,
-      cookiesBlocked,
-      fingerprintsRemoved,
-      trackersDetailed,
-    } = await browser.runtime.sendMessage('firefox@ghostery.com', { name: 'getDashboardStats' });
-    const dataPointsAnonymized = cookiesBlocked + fingerprintsRemoved;
-    document.getElementById('data-anonymized').innerText = dataPointsAnonymized;
-    document.getElementById('ads-blocked').innerText = adsBlocked;
-    document.getElementById('trackers-blocked').innerText = trackersBlocked;
-    document.getElementById('time-saved').innerText = formatTime(timeSaved);
-    resolveStatsLoading(trackersDetailed);
-
     // Select random box
     const boxes = document.querySelectorAll('tab-item');
     const index = Math.floor(Math.random() * boxes.length);
