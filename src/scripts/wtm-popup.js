@@ -2,7 +2,7 @@ import ChartData from './models/chart-data.js';
 import { WTM_CATEGORY_COLORS } from './wtm-utils.js';
 
 
-const { html, dispatch } = hybrids;
+const { html, dispatch, property } = hybrids;
 
 function hide(host) {
   dispatch(host, "hide");
@@ -12,17 +12,19 @@ const closeIcon = html`
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
 `;
 
+const t = browser.i18n.getMessage;
+
 export default {
   chartData: ChartData,
 
-  render: ({ chartData }) => html`
+  render: ({ chartData, title }) => html`
     <div class="wtm-popup" >
       <div class="wrapper">
         <div class="header">
-          <h3>Total tracking entities</h3>
+          <h3>${t("wtm_popup_header_title")}</h3>
           <a class="close" onclick="${hide}">${closeIcon}</a>
         </div>
-        <p class="domain">Grouped by categories</p>
+        <p class="domain">${t("wtm_popup_header_description")}</p>
         <div class="details">
           <wtm-chart chartData=${chartData}></wtm-chart>
           <div class="legend">
@@ -39,7 +41,7 @@ export default {
         </div>
 
         <div class="report">
-          <a href="https://whotracks.me/" target="_blank">Statistical report ›</a>
+          <a href="https://whotracks.me/" target="_blank">${t("wtm_popup_wtm_link")} ›</a>
         </div>
       </div>
 

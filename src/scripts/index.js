@@ -35,7 +35,7 @@
     firstRow.slice(0, 5).forEach(site => {
       const $tile = document.createElement('speed-dial');
       $tile.setAttribute('url', site?.url);
-      $tile.setAttribute('favicon', null);//site?.favicon);
+      $tile.setAttribute('favicon', site?.favicon);
       $tile.setAttribute('title', site?.title);
 
       $topsites1.appendChild($tile);

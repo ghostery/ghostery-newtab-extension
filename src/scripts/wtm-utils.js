@@ -22,55 +22,42 @@ const WTM_CATEGORY_COLORS = {
 const EXPECTED_CATEGORIES = [
   {
     id: 'advertising',
-    name: 'Advertising',
   },
   {
     id: 'site_analytics',
-    name: 'Site Analytics',
   },
   {
     id: 'cdn',
-    name: 'Cdn',
   },
   {
     id: 'audio_video_player',
-    name: 'Audio Video Player',
   },
   {
     id: 'misc',
-    name: 'Misc',
   },
   {
     id: 'essential',
-    name: 'Essential',
   },
   {
     id: 'social_media',
-    name: 'Social Media',
   },
   {
     id: 'hosting',
-    name: 'Hosting',
   },
   {
     id: 'customer_interaction',
-    name: 'Customer Interaction',
   },
   {
     id: 'pornvertising',
-    name: 'Pornvertising',
   },
   {
     id: 'extensions',
-    name: 'Extensions',
   },
   {
     id: 'comments',
-    name: 'Comments',
   },
   {
     id: 'unknown',
-    name: 'Unknown',
   },
 ];
 
@@ -122,7 +109,7 @@ function fromTrackersToChartData(allTrackers) {
       start: startAngle,
       end: endAngle,
       categoryId: trackers[i].id,
-      categoryName: trackers[i].name,
+      categoryName: browser.i18n.getMessage(`wtm_category_${trackers[i].id}`),
       count: trackers[i].numTotal,
     });
 
