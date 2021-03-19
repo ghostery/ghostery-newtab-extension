@@ -1,4 +1,5 @@
-import { WTM_CATEGORY_COLORS, describeArc, fromTrackersToChartData } from './wtm-utils.js';
+import { WTM_CATEGORY_COLORS, describeArc } from './wtm-utils.js';
+import ChartData from './models/chart-data.js';
 
 const { svg, html } = hybrids;
 
@@ -39,8 +40,9 @@ function formatBigNumber(num)  {
 }
 
 export default {
+  chartData: ChartData,
 
-  render: ({ }) => html`
+  render: ({ chartData }) => html`
     <style>
       .chart {
         position: relative;
@@ -52,7 +54,7 @@ export default {
 
       .count {
         font-size: 15px;
-        color: white;
+        color: var(--header);
         font-weight: 600;
         position: absolute;
         width: 100%;
@@ -66,43 +68,34 @@ export default {
       }
     </style>
     <div class="chart">
-      ${html.resolve(
-        window.statsLoading.then(
-          (trackersDetailed) => {
-            const { arcs, sum } = fromTrackersToChartData(trackersDetailed);
-            return html`
-              <svg
-                id='circle'
-                xmlns='http://www.w3.org/2000/svg'
-                version='1.1'
-                width='100%'
-                height='100%'
-                viewBox='-20 -20 240 240'
+      <svg
+        id='circle'
+        xmlns='http://www.w3.org/2000/svg'
+        version='1.1'
+        width='100%'
+        height='100%'
+        viewBox='-20 -20 240 240'
+      >
+        <g
+          fill='none'
+          stroke-width='38'
+          style="transform: translate(100px, 100px);"
+        >
+          ${html`${chartData.arcs.map((arc) => {
+            const { d, length } = describeArc(0, 0, 100, arc.start, arc.end === 360 ? 359.9999 : arc.end);
+            return svg`
+              <path
+                d="${d}"
+                pathLength="${length}"
+                style="stroke-dashoffset: 0; stroke-dasharray: 1000; stroke: ${WTM_CATEGORY_COLORS[arc.categoryId]};"
               >
-                <g
-                  fill='none'
-                  stroke-width='38'
-                  style="transform: translate(100px, 100px);"
-                >
-                  ${html`${arcs.map((arc) => {
-                    const { d, length } = describeArc(0, 0, 100, arc.start, arc.end === 360 ? 359.9999 : arc.end);
-                    return svg`
-                      <path
-                        d="${d}"
-                        pathLength="${length}"
-                        style="stroke-dashoffset: 0; stroke-dasharray: 1000; stroke: ${WTM_CATEGORY_COLORS[arc.categoryId]};"
-                      >
-                        <title>${arc.count}</title>
-                      </path>
-                    `;
-                  })}`}
-                </g>
-              </svg>
-              <span class="count">${formatBigNumber(sum)}</span>
+                <title>${arc.count}</title>
+              </path>
             `;
-          },
-          html``,
-        ))}
+          })}`}
+        </g>
+      </svg>
+      <span class="count">${formatBigNumber(chartData.sum)}</span>
     </div>
   `,
 };

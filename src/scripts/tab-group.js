@@ -51,7 +51,7 @@ export default {
         background-repeat: no-repeat;
         background-color: transparent;
         cursor: pointer;
-        opacity: 0.8;
+        opacity: 0.5;
       }
       button.nav:hover {
         opacity: 1;

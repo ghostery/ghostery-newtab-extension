@@ -1,11 +1,6 @@
-"use strict";
-
 
 (function () {
-  let resolveStatsLoading;
-  window.statsLoading = new Promise((resolve) => {
-    resolveStatsLoading = resolve;
-  });
+
   async function getTopSites() {
     let sites = await browser.topSites.get({
       includeFavicon: true,
@@ -26,22 +21,9 @@
     }
   }
 
-  function getSpeedDialTitle(dial) {
-    if (dial.title) {
-      return dial.title;
-    }
-    const uri = new URL(dial.url);
-    let hostname = uri.hostname;
-    if (hostname.startsWith('www')) {
-      hostname = hostname.slice(4);
-    }
-    return hostname;
-  }
-
   async function loadTopSites() {
     const $topsites1 = document.querySelector('.top-sites-1');
     const $topsites2 = document.querySelector('.top-sites-2');
-    const $tileTemplate = document.querySelector('#tile-template');
     const topSites = await getTopSites();
     const firstRow = topSites.slice(0, 5);
     if (firstRow.length === 0) {
@@ -51,14 +33,11 @@
       firstRow.push(null);
     }
     firstRow.slice(0, 5).forEach(site => {
-      const $tile = $tileTemplate.content.cloneNode(true);
-      if (site) {
-        $tile.querySelector('a').setAttribute('href', site.url);
-        $tile.querySelector('img').setAttribute('src', site.favicon);
-        $tile.querySelector('span').innerText = getSpeedDialTitle(site);
-      } else {
-        $tile.querySelector('a').style.visibility = 'hidden';
-      }
+      const $tile = document.createElement('speed-dial');
+      $tile.setAttribute('url', site?.url);
+      $tile.setAttribute('favicon', site?.favicon);
+      $tile.setAttribute('title', site?.title);
+
       $topsites1.appendChild($tile);
     });
     const secondRow = topSites.slice(5, 10);
@@ -69,14 +48,10 @@
       secondRow.push(null);
     }
     secondRow.forEach(site => {
-      const $tile = $tileTemplate.content.cloneNode(true);
-      if (site) {
-        $tile.querySelector('a').setAttribute('href', site.url);
-        $tile.querySelector('img').setAttribute('src', site.favicon);
-        $tile.querySelector('span').innerText = getSpeedDialTitle(site);
-      } else {
-        $tile.querySelector('a').style.visibility = 'hidden';
-      }
+      const $tile = document.createElement('speed-dial');
+      $tile.setAttribute('url', site?.url);
+      $tile.setAttribute('favicon', site?.favicon);
+      $tile.setAttribute('title', site?.title);
       $topsites2.appendChild($tile);
     });
   }
@@ -92,46 +67,7 @@
     }
   }
 
-
-  const parseTime = (ms) => {
-    const s = Math.floor(ms / 1000);
-    return {
-      h: Math.floor(s / 3600),
-      m: Math.floor(s / 60) % 60,
-      s: s % 60,
-    };
-  };
-
-  const formatTime = (ms) => {
-    if (!ms) { return `0 s`; }
-
-    const time = parseTime(ms);
-    let res = '';
-
-    res = time.h > 0 ? `${time.h} h` : '';
-    res += time.m > 0 ? ` ${time.m} m` : '';
-    if (res === '') {
-      res = `${time.s} s`;
-    }
-    return res.trim();
-  };
-
   async function loadStats() {
-    const {
-      adsBlocked,
-      trackersBlocked,
-      timeSaved,
-      cookiesBlocked,
-      fingerprintsRemoved,
-      trackersDetailed,
-    } = await browser.runtime.sendMessage('firefox@ghostery.com', { name: 'getDashboardStats' });
-    const dataPointsAnonymized = cookiesBlocked + fingerprintsRemoved;
-    document.getElementById('data-anonymized').innerText = dataPointsAnonymized;
-    document.getElementById('ads-blocked').innerText = adsBlocked;
-    document.getElementById('trackers-blocked').innerText = trackersBlocked;
-    document.getElementById('time-saved').innerText = formatTime(timeSaved);
-    resolveStatsLoading(trackersDetailed);
-
     // Select random box
     const boxes = document.querySelectorAll('tab-item');
     const index = Math.floor(Math.random() * boxes.length);

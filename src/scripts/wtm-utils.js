@@ -15,62 +15,49 @@ const WTM_CATEGORY_COLORS = {
   extensions: '#e2e781',
   comments: '#b0a8ff',
   unknown: '#959595',
-  default: '#dedede',
+  default: '#ffffff30',
   no_tracker: '#94c59e',
 };
 
 const EXPECTED_CATEGORIES = [
   {
     id: 'advertising',
-    name: 'Advertising',
   },
   {
     id: 'site_analytics',
-    name: 'Site Analytics',
   },
   {
     id: 'cdn',
-    name: 'Cdn',
   },
   {
     id: 'audio_video_player',
-    name: 'Audio Video Player',
   },
   {
     id: 'misc',
-    name: 'Misc',
   },
   {
     id: 'essential',
-    name: 'Essential',
   },
   {
     id: 'social_media',
-    name: 'Social Media',
   },
   {
     id: 'hosting',
-    name: 'Hosting',
   },
   {
     id: 'customer_interaction',
-    name: 'Customer Interaction',
   },
   {
     id: 'pornvertising',
-    name: 'Pornvertising',
   },
   {
     id: 'extensions',
-    name: 'Extensions',
   },
   {
     id: 'comments',
-    name: 'Comments',
   },
   {
     id: 'unknown',
-    name: 'Unknown',
   },
 ];
 
@@ -95,7 +82,9 @@ function fromTrackersToChartData(allTrackers) {
   if (!trackers.length) {
     return {
       sum: 0,
-      arcs: [],
+      arcs: [
+        { start: 0, end: 360, categoryId: 'default' }
+      ],
     };
   }
 
@@ -120,7 +109,7 @@ function fromTrackersToChartData(allTrackers) {
       start: startAngle,
       end: endAngle,
       categoryId: trackers[i].id,
-      categoryName: trackers[i].name,
+      categoryName: browser.i18n.getMessage(`wtm_category_${trackers[i].id}`),
       count: trackers[i].numTotal,
     });
 
