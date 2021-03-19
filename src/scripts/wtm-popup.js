@@ -17,7 +17,7 @@ const t = browser.i18n.getMessage;
 export default {
   chartData: ChartData,
 
-  render: ({ chartData, title }) => html`
+  render: ({ chartData }) => html`
     <div class="wtm-popup" >
       <div class="wrapper">
         <div class="header">
