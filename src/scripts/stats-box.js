@@ -1,6 +1,14 @@
-import PrivacyStats from './privacy-stats.js';
+import PrivacyStats from './models/privacy-stats.js';
 
-const { html, store } = hybrids;
+const { html, store, property } = hybrids;
+
+const formatStat = (stat, privacyStats) => {
+  let value = privacyStats[stat];
+  if (typeof value === 'number') {
+    value = new Intl.NumberFormat().format(value);
+  }
+  return value;
+};
 
 export default {
   privacyStats: store(PrivacyStats),
@@ -43,7 +51,7 @@ export default {
         line-height: 1.1;
       }
 
-      wtm-chart {
+      wtm-widget {
         padding-left: 15px;
       }
     </style>
@@ -52,13 +60,13 @@ export default {
         <h3>${browser.i18n.getMessage('stats_header')}</h3>
         ${store.ready(privacyStats)
           ? html`
-              <span id="ads-blocked">${privacyStats[stat]}</span>
+              <span id="ads-blocked">${formatStat(stat, privacyStats)}</span>
               <label>${i18n && browser.i18n.getMessage(i18n)}</label>
             `
           : html`<span>&nbsp;</span>`
         }
       </main>
-      <wtm-chart />
+      <wtm-widget />
     </div>
   `,
 }
