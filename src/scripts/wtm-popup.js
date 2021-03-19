@@ -60,12 +60,12 @@ export default {
         display: inline-block;
         width: 16px;
         height: 16px;
-        background-color: var(--footer-background);;
+        background-color: white;
         transform: rotate(45deg);
       }
 
       .wtm-popup .wrapper {
-        background-color: var(--footer-background);
+        background-color: white;
         border-radius: 14px;
         width: 350px;
         -webkit-box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.15);
@@ -77,7 +77,7 @@ export default {
       }
 
       .wtm-popup .header {
-        color: white;
+        color: #202225;
         margin: 0;
         padding: 15px 20px 0 20px;
         display: flex;
@@ -93,10 +93,11 @@ export default {
         padding: 0;
         font-size: 20px;
         font-weight: 500;
+        color: #202225;
       }
 
       .wtm-popup .header .close:hover {
-        color: white;
+        color: #202225;
       }
 
       .wtm-popup .header .close {
@@ -112,7 +113,7 @@ export default {
         margin: 0;
         padding: 0 20px;
         font-style: normal;
-        background: linear-gradient(to right, #72b643, var(--link));
+        background: linear-gradient(to right, #72b643, var(--ghostery));
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -165,7 +166,7 @@ export default {
       }
 
       .wtm-popup .legend li .count {
-        color: white;
+        color: #202225;
         margin-left: 5px;
       }
 
@@ -179,7 +180,7 @@ export default {
       }
 
       .wtm-popup .report {
-        border-top: 1px solid #454545;
+        border-top: 1px solid #EAEAEA;
         padding: 15px 20px;
       }
 
@@ -191,6 +192,28 @@ export default {
 
       .wtm-popup .report a:visited {
         color: var(--link);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .wtm-popup::before, .wtm-popup .wrapper {
+          background-color: #202225;
+        }
+
+        .wtm-popup .header h3 {
+          color: white;
+        }
+
+        .wtm-popup .header .close:hover {
+          color: white;
+        }
+
+        .wtm-popup .legend li .count {
+          color: white;
+        }
+
+        .wtm-popup .report {
+          border-top: 1px solid #454545;
+        }
       }
     </style>
   `,

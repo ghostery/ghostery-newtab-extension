@@ -54,7 +54,7 @@ export default {
 
       .count {
         font-size: 15px;
-        color: white;
+        color: var(--header);
         font-weight: 600;
         position: absolute;
         width: 100%;

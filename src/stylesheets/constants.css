@@ -1,14 +1,14 @@
 :root {
   --background: #2F3136;
-  --footer-background: #36393F;
   --footer-text: #8E9297;
-  --link: #76CDEA;
+  --link: #0B507F;
   --text: #B9BBBE;
   --ghostery: #00AEF0;
   --dawn: #FF7E74;
   --width: 654px;
   --spacing: 38px;
   --margin: 112px;
+  --header: #202225;
 }
 
 @media screen and (min-width: 1600px) {
@@ -38,10 +38,15 @@ html {
   body {
     background: rgba(0, 0, 0, 0.0);
   }
-
 }
 
 @media (prefers-color-scheme: dark) {
+  :root {
+    --dawn: #B15D58;
+    --header: white;
+    --link: #76CDEA;
+  }
+
   body {
     background: rgba(0, 0, 0, 0.3);
   }

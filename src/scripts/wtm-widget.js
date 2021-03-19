@@ -27,6 +27,7 @@ export default {
         position: relative;
       }
       wtm-chart {
+        --header: white;
         cursor: pointer;
       }
     </style>

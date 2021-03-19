@@ -21,22 +21,9 @@
     }
   }
 
-  function getSpeedDialTitle(dial) {
-    if (dial.title) {
-      return dial.title;
-    }
-    const uri = new URL(dial.url);
-    let hostname = uri.hostname;
-    if (hostname.startsWith('www')) {
-      hostname = hostname.slice(4);
-    }
-    return hostname;
-  }
-
   async function loadTopSites() {
     const $topsites1 = document.querySelector('.top-sites-1');
     const $topsites2 = document.querySelector('.top-sites-2');
-    const $tileTemplate = document.querySelector('#tile-template');
     const topSites = await getTopSites();
     const firstRow = topSites.slice(0, 5);
     if (firstRow.length === 0) {
@@ -46,14 +33,11 @@
       firstRow.push(null);
     }
     firstRow.slice(0, 5).forEach(site => {
-      const $tile = $tileTemplate.content.cloneNode(true);
-      if (site) {
-        $tile.querySelector('a').setAttribute('href', site.url);
-        $tile.querySelector('img').setAttribute('src', site.favicon);
-        $tile.querySelector('span').innerText = getSpeedDialTitle(site);
-      } else {
-        $tile.querySelector('a').style.visibility = 'hidden';
-      }
+      const $tile = document.createElement('speed-dial');
+      $tile.setAttribute('url', site?.url);
+      $tile.setAttribute('favicon', null);//site?.favicon);
+      $tile.setAttribute('title', site?.title);
+
       $topsites1.appendChild($tile);
     });
     const secondRow = topSites.slice(5, 10);
@@ -64,14 +48,10 @@
       secondRow.push(null);
     }
     secondRow.forEach(site => {
-      const $tile = $tileTemplate.content.cloneNode(true);
-      if (site) {
-        $tile.querySelector('a').setAttribute('href', site.url);
-        $tile.querySelector('img').setAttribute('src', site.favicon);
-        $tile.querySelector('span').innerText = getSpeedDialTitle(site);
-      } else {
-        $tile.querySelector('a').style.visibility = 'hidden';
-      }
+      const $tile = document.createElement('speed-dial');
+      $tile.setAttribute('url', site?.url);
+      $tile.setAttribute('favicon', site?.favicon);
+      $tile.setAttribute('title', site?.title);
       $topsites2.appendChild($tile);
     });
   }
