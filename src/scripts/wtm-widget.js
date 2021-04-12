@@ -4,6 +4,9 @@ import { fromTrackersToChartData } from './wtm-utils.js';
 const { html, store } = hybrids;
 
 function togglePopup(host) {
+  if (host.chartData.sum === 0) {
+    return;
+  }
   host.showPopup = !host.showPopup;
 }
 
@@ -28,7 +31,7 @@ export default {
       }
       wtm-chart {
         --header: white;
-        cursor: pointer;
+        cursor: "${chartData.sum > 0 ? 'pointer' : 'auto'}";
       }
     </style>
     <div class="wtm-widget">
