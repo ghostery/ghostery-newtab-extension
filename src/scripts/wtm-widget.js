@@ -31,7 +31,7 @@ export default {
       }
       wtm-chart {
         --header: white;
-        cursor: "${chartData.sum > 0 ? 'pointer' : 'auto'}";
+        cursor: ${chartData.sum > 0 ? 'pointer' : 'auto'};
       }
     </style>
     <div class="wtm-widget">
