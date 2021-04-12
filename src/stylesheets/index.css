@@ -103,3 +103,17 @@ html, body {
   top: 0.5em;
   width: 50%;
 }
+
+#account-status {
+  position: absolute;
+  top: 27px;
+  right: 30px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+}
+
+#account-button path {
+  visibility: hidden;
+}

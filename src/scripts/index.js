@@ -81,9 +81,11 @@
 
     let secondRow;
     if (await shouldShowPrivateSonsoredLinks()) {
+      document.querySelector('#account-button-out').style.visibility = 'visible';
       secondRow = await loadPrivateSponsoredLinks()
       document.querySelector('#second-row-header').style.visibility = 'visible';
     } else {
+      document.querySelector('#account-button-in').style.visibility = 'visible';
       secondRow = topSites.slice(5, 10);
     }
 
