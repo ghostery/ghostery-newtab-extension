@@ -15,7 +15,6 @@
   <body class="index">
     <img id="logo" src="/images/wordmark.svg" />
 
-
     <a href="https://account.ghostery.com/" id="account-status">
       <svg xmlns="http://www.w3.org/2000/svg" id="account-button" width="34px" height="34px" viewBox="0 0 34 34" version="1.1">
         <circle id="Oval-Copy-14" opacity="0.16" cx="17" cy="17" r="16.5" fill="#FFFFFF" stroke="none" stroke-width="1" fill-rule="evenodd"></circle>
@@ -24,26 +23,25 @@
       </svg>
     </a>
 
-
     <div class="bg">
       <div class="wrapper">
         <div class="search-bar-wrapper">
         </div>
         <div class="top-sites tiles top-sites-1"></div>
-        <header id="second-row-header">&nbsp;Private sponsored links&nbsp;</header>
+        <header id="second-row-header"><span>&nbsp;Private sponsored links&nbsp;</span></header>
         <div class="top-sites tiles top-sites-2"></div>
         <tab-group id="privacy-stats" hidden>
           <tab-item>
-            <stats-box i18n="stats_ads_blocked" stat="adsBlocked" />
+            <stats-box i18n="stats_ads_blocked" stat="adsBlocked"></stats-box>
           </tab-item>
           <tab-item>
-            <stats-box i18n="stats_trackers_blocked" stat="trackersBlocked" />
+            <stats-box i18n="stats_trackers_blocked" stat="trackersBlocked"></stats-box>
           </tab-item>
           <tab-item>
-            <stats-box i18n="stats_time_saved"" stat="timeSaved" />
+            <stats-box i18n="stats_time_saved" stat="timeSaved"></stats-box>
           </tab-item>
           <tab-item>
-            <stats-box i18n="stats_data_anonymized" stat="dataPointsAnonymized" />
+            <stats-box i18n="stats_data_anonymized" stat="dataPointsAnonymized"></stats-box>
           </tab-item>
         </tab-group>
       </div>
@@ -53,6 +51,8 @@
       <img src="/images/feedback.svg" />
       <span data-i18n="survey"></span>
     </a>
+
+    <settings-modal id="private-sponsored-links-modal"></settings-modal>
 
     <script src="/scripts/i18n.js"></script>
   </body>

@@ -1,6 +1,5 @@
-
 (function () {
-
+  const GHOSTERY_HIGHTLIGHT_URL = "https://api.ghosteryhighlights.com";
   async function getTopSites() {
     let sites = await browser.topSites.get({
       includeFavicon: true,
@@ -35,7 +34,7 @@
   }
 
   async function loadPrivateSponsoredLinks() {
-    const response = await fetch('https://api.ghosteryhighlights.com/v1/tiles', { cache: 'no-cache' });
+    const response = await fetch(`${GHOSTERY_HIGHTLIGHT_URL}/v1/tiles`, { cache: 'no-cache' });
     const links = await response.json();
 
     return links.map(link => ({
@@ -83,7 +82,9 @@
     if (await shouldShowPrivateSonsoredLinks()) {
       document.querySelector('#account-button-out').style.visibility = 'visible';
       secondRow = await loadPrivateSponsoredLinks()
-      document.querySelector('#second-row-header').style.visibility = 'visible';
+      if (secondRow.length > 0) {
+        document.querySelector('#second-row-header').style.visibility = 'visible';
+      }
     } else {
       document.querySelector('#account-button-in').style.visibility = 'visible';
       secondRow = topSites.slice(5, 10);
@@ -112,6 +113,9 @@
   }
 
   function setup() {
+    document.querySelector('#second-row-header').addEventListener('click', () => {
+      document.querySelector('#private-sponsored-links-modal').hidden = false;
+    });
     loadTopSites();
     setupSearchBar();
     loadStats();

@@ -86,17 +86,22 @@ html, body {
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: white;
-  opacity: 0.4;
+  color: rgba(255, 255, 255, 0.4);
   display: table;
   white-space: nowrap;
   margin-bottom: 10px;
   visibility: hidden;
+  transition: 0s color;
+  cursor: pointer;
+}
+
+#second-row-header span:hover {
+  color: white;
+  transition-delay: 0.06s;
 }
 
 #second-row-header:before, #second-row-header:after {
-  border-top: 2px dashed white;
-  opacity: 0.4;
+  border-top: 2px dashed rgba(255, 255, 255, 0.18);
   content: '';
   display: table-cell;
   position: relative;
