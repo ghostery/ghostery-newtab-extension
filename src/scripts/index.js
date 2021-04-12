@@ -1,6 +1,5 @@
-
 (function () {
-
+  const GHOSTERY_HIGHTLIGHT_URL = "https://api.ghosteryhighlights.com";
   async function getTopSites() {
     let sites = await browser.topSites.get({
       includeFavicon: true,
@@ -21,39 +20,77 @@
     }
   }
 
+  function shouldShowPrivateSonsoredLinks() {
+    return Promise.race([
+      new Promise(resolve => setTimeout(() => resolve(true), 100)),
+      new Promise(async (resolve) => {
+        const user = await browser.runtime.sendMessage('firefox@ghostery.com', { name: 'getUser' });
+        if (!user) {
+          return true;
+        }
+        return false;
+      }),
+    ]);
+  }
+
+  async function loadPrivateSponsoredLinks() {
+    const response = await fetch(`${GHOSTERY_HIGHTLIGHT_URL}/v1/tiles`, { cache: 'no-cache' });
+    const links = await response.json();
+
+    return links.map(link => ({
+      url: link.advertiserUrl,
+      clickUrl: link.clickUrl,
+      favicon: link.imageUrl,
+      title: link.name,
+    }));
+  }
+
+  function populateRow(row, dials) {
+    if (dials.length === 0) {
+      return;
+    }
+    while (dials.length < 5) {
+      dials.push(null);
+    }
+    dials.slice(0, 5).forEach(dial => {
+      const $tile = document.createElement('speed-dial');
+      $tile.setAttribute('url', dial?.url);
+      $tile.setAttribute('favicon', dial?.favicon);
+      $tile.setAttribute('title', dial?.title);
+
+      if (dial?.clickUrl) {
+        $tile.addEventListener('click', (event) => {
+          event.preventDefault();
+          window.location.href = dial.clickUrl;
+          return false;
+        });
+      }
+
+      row.appendChild($tile);
+    });
+  }
+
   async function loadTopSites() {
     const $topsites1 = document.querySelector('.top-sites-1');
     const $topsites2 = document.querySelector('.top-sites-2');
     const topSites = await getTopSites();
     const firstRow = topSites.slice(0, 5);
-    if (firstRow.length === 0) {
-      return;
-    }
-    while (firstRow.length < 5) {
-      firstRow.push(null);
-    }
-    firstRow.slice(0, 5).forEach(site => {
-      const $tile = document.createElement('speed-dial');
-      $tile.setAttribute('url', site?.url);
-      $tile.setAttribute('favicon', site?.favicon);
-      $tile.setAttribute('title', site?.title);
 
-      $topsites1.appendChild($tile);
-    });
-    const secondRow = topSites.slice(5, 10);
-    if (secondRow.length === 0) {
-      return;
+    populateRow($topsites1, firstRow);
+
+    let secondRow;
+    if (await shouldShowPrivateSonsoredLinks()) {
+      document.querySelector('#account-button-out').style.visibility = 'visible';
+      secondRow = await loadPrivateSponsoredLinks()
+      if (secondRow.length > 0) {
+        document.querySelector('#second-row-header').style.visibility = 'visible';
+      }
+    } else {
+      document.querySelector('#account-button-in').style.visibility = 'visible';
+      secondRow = topSites.slice(5, 10);
     }
-    while (secondRow.length < 5) {
-      secondRow.push(null);
-    }
-    secondRow.forEach(site => {
-      const $tile = document.createElement('speed-dial');
-      $tile.setAttribute('url', site?.url);
-      $tile.setAttribute('favicon', site?.favicon);
-      $tile.setAttribute('title', site?.title);
-      $topsites2.appendChild($tile);
-    });
+
+    populateRow($topsites2, secondRow);
   }
 
   async function setupSearchBar() {
@@ -76,6 +113,9 @@
   }
 
   function setup() {
+    document.querySelector('#second-row-header').addEventListener('click', () => {
+      document.querySelector('#private-sponsored-links-modal').hidden = false;
+    });
     loadTopSites();
     setupSearchBar();
     loadStats();

@@ -4,8 +4,9 @@ export default {
   title: '',
   url: '',
   favicon: '',
-  hostname: ({ url }) => {
-    if (!url) {
+  hasUrl: ({ url }) => url && url !== 'undefined',
+  hostname: ({ url, hasUrl}) => {
+    if (!hasUrl) {
       return '';
     }
     const uri = new URL(url);
@@ -21,8 +22,8 @@ export default {
     }
     return hostname;
   },
-  render: ({ fullTitle, favicon, url, hostname }) => html`
-    <a class="tile" href="${url}" style=${{ visibility: url ? 'visible' : 'hidden' }}>
+  render: ({ fullTitle, favicon, url, hostname, hasUrl }) => html`
+    <a class="tile" href="${url}" style=${{ visibility: hasUrl ? 'visible' : 'hidden' }}>
       <div class="image-wrapper">
         ${favicon && favicon !== "null"
           ? html`<img src="${favicon}" />`

@@ -49,35 +49,6 @@ html, body {
   height: 126px;
 }
 
-.ads {
-  visibility: hidden;
-  height: 164px;
-  margin-top: 20px;
-  width: var(--width)
-}
-
-.ads h3 {
-  text-align: center;
-  font-weight: '500';
-  font-size: 10px;
-  margin: 0;
-  padding: 0;
-  color: #595161;
-  display: table;
-  white-space: nowrap;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.ads h3:before, .ads h3:after {
-  border-top: 2px dashed #404146;
-  content: '';
-  display: table-cell;
-  position: relative;
-  top: 0.5em;
-  width: 40%;
-}
-
 .search-bar-wrapper {
   height: 48px;
   margin-bottom: 30px;
@@ -105,11 +76,49 @@ html, body {
   margin-right: 5px;
 }
 
-.stats {
-  height: 200px;
-}
-
 #privacy-stats {
   width: 446px;
   height: 124px;
+  display: block;
+}
+
+#second-row-header {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.4);
+  display: table;
+  white-space: nowrap;
+  margin-bottom: 10px;
+  visibility: hidden;
+  transition: 0s color;
+  cursor: pointer;
+}
+
+#second-row-header span:hover {
+  color: white;
+  transition-delay: 0.06s;
+}
+
+#second-row-header:before, #second-row-header:after {
+  border-top: 2px dashed rgba(255, 255, 255, 0.18);
+  content: '';
+  display: table-cell;
+  position: relative;
+  top: 0.5em;
+  width: 50%;
+}
+
+#account-status {
+  position: absolute;
+  top: 27px;
+  right: 30px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+}
+
+#account-button path {
+  visibility: hidden;
 }
