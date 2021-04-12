@@ -20,15 +20,15 @@
     }
   }
 
-  function shouldShowPrivateSonsoredLinks() {
+  function shouldShowPrivateSponsoredLinks() {
     return Promise.race([
-      new Promise(resolve => setTimeout(() => resolve(true), 100)),
+      new Promise(resolve => setTimeout(() => resolve(true), 300)),
       new Promise(async (resolve) => {
         const user = await browser.runtime.sendMessage('firefox@ghostery.com', { name: 'getUser' });
         if (!user) {
-          return true;
+          resolve(true);
         }
-        return false;
+        return resolve(false);
       }),
     ]);
   }
@@ -79,7 +79,7 @@
     populateRow($topsites1, firstRow);
 
     let secondRow;
-    if (await shouldShowPrivateSonsoredLinks()) {
+    if (await shouldShowPrivateSponsoredLinks()) {
       document.querySelector('#account-button-out').style.visibility = 'visible';
       secondRow = await loadPrivateSponsoredLinks()
       if (secondRow.length > 0) {
