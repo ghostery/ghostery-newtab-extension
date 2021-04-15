@@ -124,9 +124,9 @@ export default {
           </nav>
 
           <section>
-            One of the reasons you’re seeing the row of Private Sponsored Links is Ghostery transparecy policy. We belive it’s a fair but uncompromised way to make our browser and search possible.
+            You are seeing these Private Sponsored Links because they allow Ghostery to pay our bills while still preserving your privacy.  This feature helps us provide Ghostery Dawn as a free product and it is designed to operate with zero user data.
             <br/><br/>
-            To control this function, please Subscribe to one of our plans.
+            If you would like all the great benefits of Ghostery without seeing Private Sponsored Links, you can subscribe to one of our plans to remove private ads and unlock all of our advanced products and features.
             <br/><br/>
             <a href="https://account.ghostery.com/en/subscription/">Subscribe</a>
           </section>

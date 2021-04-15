@@ -21,16 +21,19 @@
   }
 
   function shouldShowPrivateSponsoredLinks() {
-    return Promise.race([
-      new Promise(resolve => setTimeout(() => resolve(true), 300)),
-      new Promise(async (resolve) => {
-        const user = await browser.runtime.sendMessage('firefox@ghostery.com', { name: 'getUser' });
-        if (!user) {
-          resolve(true);
-        }
-        return resolve(false);
-      }),
-    ]);
+    browser.runtime.sendMessage('firefox@ghostery.com', { name: 'getUser' }).then(user => {
+      localStorage.shouldShowPrivateSponsoredLinks = !user;
+    });
+
+    return localStorage.shouldShowPrivateSponsoredLinks || false;
+  }
+
+  function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
   }
 
   async function loadPrivateSponsoredLinks() {
@@ -82,6 +85,7 @@
     if (await shouldShowPrivateSponsoredLinks()) {
       document.querySelector('#account-button-out').style.visibility = 'visible';
       secondRow = await loadPrivateSponsoredLinks()
+      shuffle(secondRow);
       if (secondRow.length > 0) {
         document.querySelector('#second-row-header').style.visibility = 'visible';
       }
