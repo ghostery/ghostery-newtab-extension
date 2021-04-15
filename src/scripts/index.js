@@ -28,6 +28,14 @@
     return localStorage.shouldShowPrivateSponsoredLinks || false;
   }
 
+  function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
   async function loadPrivateSponsoredLinks() {
     const response = await fetch(`${GHOSTERY_HIGHTLIGHT_URL}/v1/tiles`, { cache: 'no-cache' });
     const links = await response.json();
@@ -77,6 +85,7 @@
     if (await shouldShowPrivateSponsoredLinks()) {
       document.querySelector('#account-button-out').style.visibility = 'visible';
       secondRow = await loadPrivateSponsoredLinks()
+      shuffle(secondRow);
       if (secondRow.length > 0) {
         document.querySelector('#second-row-header').style.visibility = 'visible';
       }
