@@ -21,16 +21,11 @@
   }
 
   function shouldShowPrivateSponsoredLinks() {
-    return Promise.race([
-      new Promise(resolve => setTimeout(() => resolve(true), 300)),
-      new Promise(async (resolve) => {
-        const user = await browser.runtime.sendMessage('firefox@ghostery.com', { name: 'getUser' });
-        if (!user) {
-          resolve(true);
-        }
-        return resolve(false);
-      }),
-    ]);
+    browser.runtime.sendMessage('firefox@ghostery.com', { name: 'getUser' }).then(user => {
+      localStorage.shouldShowPrivateSponsoredLinks = !user;
+    });
+
+    return localStorage.shouldShowPrivateSponsoredLinks || false;
   }
 
   async function loadPrivateSponsoredLinks() {
