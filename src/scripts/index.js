@@ -25,7 +25,11 @@
       localStorage.shouldShowPrivateSponsoredLinks = !user;
     });
 
-    return localStorage.shouldShowPrivateSponsoredLinks || false;
+    try {
+      return JSON.parse(localStorage.shouldShowPrivateSponsoredLinks);
+    } catch (e) {
+      return false;
+    }
   }
 
   function shuffle(a) {
