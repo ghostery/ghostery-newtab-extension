@@ -1,6 +1,6 @@
-import PrivacyStats from '../models/privacy-stats.js';
+import { html, store } from '../../libs/hybrids/index.js';
 
-const { html, store, property } = hybrids;
+import PrivacyStats from '../models/privacy-stats.js';
 
 const formatStat = (stat, privacyStats) => {
   let value = privacyStats[stat];
