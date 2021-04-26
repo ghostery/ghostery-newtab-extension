@@ -1,5 +1,5 @@
-import PrivacyStats from './models/privacy-stats.js';
-import { fromTrackersToChartData } from './wtm-utils.js';
+import PrivacyStats from '../models/privacy-stats.js';
+import { fromTrackersToChartData } from '../utils/wtm-utils.js';
 
 const { html, store } = hybrids;
 

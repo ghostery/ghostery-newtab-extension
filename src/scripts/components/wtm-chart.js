@@ -1,5 +1,4 @@
-import { WTM_CATEGORY_COLORS, describeArc } from './wtm-utils.js';
-import ChartData from './models/chart-data.js';
+import { WTM_CATEGORY_COLORS, describeArc } from '../utils/wtm-utils.js';
 
 const { svg, html } = hybrids;
 
@@ -40,7 +39,7 @@ function formatBigNumber(num)  {
 }
 
 export default {
-  chartData: ChartData,
+  chartData: null,
 
   render: ({ chartData }) => html`
     <style>
