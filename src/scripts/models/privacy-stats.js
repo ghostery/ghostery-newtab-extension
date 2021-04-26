@@ -1,4 +1,4 @@
-const { store } = hybrids
+import { store } from '../../libs/hybrids/index.js';
 
 const Tracker = {
   cat: "",

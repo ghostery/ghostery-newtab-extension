@@ -1,7 +1,7 @@
+import { html, store } from '../../libs/hybrids/index.js';
+
 import PrivacyStats from '../models/privacy-stats.js';
 import { fromTrackersToChartData } from '../utils/wtm-utils.js';
-
-const { html, store } = hybrids;
 
 function togglePopup(host) {
   if (host.chartData.sum === 0) {

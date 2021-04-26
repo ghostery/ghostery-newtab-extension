@@ -1,6 +1,6 @@
-import { WTM_CATEGORY_COLORS, describeArc } from '../utils/wtm-utils.js';
+import { html, svg } from '../../libs/hybrids/index.js';
 
-const { svg, html } = hybrids;
+import { WTM_CATEGORY_COLORS, describeArc } from '../utils/wtm-utils.js';
 
 function formatBigNumber(num)  {
   const options = {

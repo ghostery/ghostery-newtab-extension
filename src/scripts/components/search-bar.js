@@ -1,3 +1,5 @@
+import { html } from '../../libs/hybrids/index.js';
+
 import { iconX, iconSearch } from '../templates/icons.js';
 
 const styles = `
@@ -230,7 +232,7 @@ function updateQuery(host, event) {
 
 export default {
   query: '',
-  render: ({ query }) => hybrids.html`
+  render: ({ query }) => html`
 <div id="searchForm">
   <form  action="https://glowstery.com/search">
     <input

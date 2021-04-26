@@ -1,6 +1,6 @@
-import TabItem from './tab-item.js';
+import { html, children } from '../../libs/hybrids/index.js';
 
-const { children, html } = hybrids;
+import TabItem from './tab-item.js';
 
 function updateActiveItem(host) {
   host.items.forEach((item, index) => {

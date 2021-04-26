@@ -1,4 +1,4 @@
-const { html } = hybrids;
+import { html } from '../../libs/hybrids/index.js';
 
 export default {
   active: false,

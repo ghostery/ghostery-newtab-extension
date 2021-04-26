@@ -6,7 +6,7 @@
   "scripts": {
     "build": "web-ext build",
     "start": "web-ext run --pref extensions.experiments.enabled=true --pref security.sandbox.content.level=2",
-    "postinstall": "cp node_modules/hybrids/dist/hybrids.js src/libs/"
+    "postinstall": "rm -rf src/libs/hybrids; cp -R node_modules/hybrids/src src/libs/hybrids"
   },
   "webExt": {
     "sourceDir": "./src/",
@@ -26,6 +26,6 @@
     "web-ext": "^5.2.0"
   },
   "dependencies": {
-    "hybrids": "^4.3.4"
+    "hybrids": "^5.2.2"
   }
 }

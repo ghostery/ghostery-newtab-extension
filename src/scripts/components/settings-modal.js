@@ -1,6 +1,6 @@
-import { iconX } from '../templates/icons.js';
+import { html } from '../../libs/hybrids/index.js';
 
-const { html } = hybrids;
+import { iconX } from '../templates/icons.js';
 
 function hide(host) {
   host.hidden = true;
