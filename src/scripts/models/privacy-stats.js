@@ -1,5 +1,7 @@
 import { store } from '../../libs/hybrids/index.js';
 
+import { getDashboardStats } from '../utils/gbe.js';
+
 const Tracker = {
   cat: "",
   name: "",
@@ -21,7 +23,7 @@ const PrivacyStats = {
         cookiesBlocked,
         fingerprintsRemoved,
         trackersDetailed,
-      } = await browser.runtime.sendMessage('firefox@ghostery.com', { name: 'getDashboardStats' });
+      } = await getDashboardStats();
       const dataPointsAnonymized = cookiesBlocked + fingerprintsRemoved;
       return {
         adsBlocked,
