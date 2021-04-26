@@ -1,8 +1,8 @@
 {
   "name": "ghostery-newtab-extension",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Ghostery Dawn New Tab Page",
+  "license": "MPL-2.0",
   "scripts": {
     "build": "web-ext build",
     "start": "web-ext run --pref extensions.experiments.enabled=true --pref security.sandbox.content.level=2",
