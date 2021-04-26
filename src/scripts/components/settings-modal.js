@@ -1,4 +1,4 @@
-import { iconX } from './templates/icons.js';
+import { iconX } from '../templates/icons.js';
 
 const { html } = hybrids;
 

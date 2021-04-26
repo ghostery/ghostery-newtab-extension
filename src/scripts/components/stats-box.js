@@ -1,4 +1,4 @@
-import PrivacyStats from './models/privacy-stats.js';
+import PrivacyStats from '../models/privacy-stats.js';
 
 const { html, store, property } = hybrids;
 

@@ -1,4 +1,4 @@
-import { iconX, iconSearch } from './templates/icons.js';
+import { iconX, iconSearch } from '../templates/icons.js';
 
 const styles = `
 :root {

@@ -1,5 +1,5 @@
-import ChartData from './models/chart-data.js';
-import { WTM_CATEGORY_COLORS } from './wtm-utils.js';
+import ChartData from '../models/chart-data.js';
+import { WTM_CATEGORY_COLORS } from '../utils/wtm-utils.js';
 
 
 const { html, dispatch, property } = hybrids;
