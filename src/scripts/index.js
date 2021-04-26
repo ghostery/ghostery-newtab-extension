@@ -1,4 +1,10 @@
-const GHOSTERY_HIGHTLIGHT_URL = "https://api.ghosteryhighlights.com";
+import CurrentUser from './models/current-user.js';
+import { loadPrivateSponsoredLinks } from './utils/highlights.js';
+
+const currentUser = new CurrentUser();
+
+window.currentUser = currentUser;
+
 async function getTopSites() {
   let sites = await browser.topSites.get({
     includeFavicon: true,
@@ -19,36 +25,12 @@ function cleanup() {
   }
 }
 
-function shouldShowPrivateSponsoredLinks() {
-  browser.runtime.sendMessage('firefox@ghostery.com', { name: 'getUser' }).then(user => {
-    localStorage.shouldShowPrivateSponsoredLinks = !user;
-  });
-
-  try {
-    return JSON.parse(localStorage.shouldShowPrivateSponsoredLinks);
-  } catch (e) {
-    return false;
-  }
-}
-
 function shuffle(a) {
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
-}
-
-async function loadPrivateSponsoredLinks() {
-  const response = await fetch(`${GHOSTERY_HIGHTLIGHT_URL}/v1/tiles`, { cache: 'no-cache' });
-  const links = await response.json();
-
-  return links.map(link => ({
-    url: link.advertiserUrl,
-    clickUrl: link.clickUrl,
-    favicon: link.imageUrl,
-    title: link.name,
-  }));
 }
 
 function populateRow(row, dials) {
@@ -76,6 +58,15 @@ function populateRow(row, dials) {
   });
 }
 
+async function updateAccountButton() {
+  await currentUser.load();
+  if (currentUser.isLoggedIn) {
+    document.querySelector('#account-button-in').style.visibility = 'visible';
+  } else {
+    document.querySelector('#account-button-out').style.visibility = 'visible';
+  }
+}
+
 async function loadTopSites() {
   const $topsites1 = document.querySelector('.top-sites-1');
   const $topsites2 = document.querySelector('.top-sites-2');
@@ -85,15 +76,13 @@ async function loadTopSites() {
   populateRow($topsites1, firstRow);
 
   let secondRow;
-  if (await shouldShowPrivateSponsoredLinks()) {
-    document.querySelector('#account-button-out').style.visibility = 'visible';
+  if (currentUser.shouldSeePrivateSponsoredLinks) {
     secondRow = await loadPrivateSponsoredLinks()
     shuffle(secondRow);
     if (secondRow.length > 0) {
       document.querySelector('#second-row-header').style.visibility = 'visible';
     }
   } else {
-    document.querySelector('#account-button-in').style.visibility = 'visible';
     secondRow = topSites.slice(5, 10);
   }
 
@@ -123,6 +112,7 @@ function setup() {
   document.querySelector('#second-row-header').addEventListener('click', () => {
     document.querySelector('#private-sponsored-links-modal').hidden = false;
   });
+  updateAccountButton();
   loadTopSites();
   setupSearchBar();
   loadStats();
