@@ -1,90 +1,90 @@
-{
+п»ї{
   "survey": {
-    "message": "Оставить отзыв",
+    "message": "РћСЃС‚Р°РІРёС‚СЊ РѕС‚Р·С‹РІ",
     "description": "Survey link"
   },
   "stats_header": {
-    "message": "Статистика Ghostery",
+    "message": "РЎС‚Р°С‚РёСЃС‚РёРєР° Ghostery",
     "description": "Header over stats"
   },
   "stats_ads_blocked": {
-    "message": "Заблокированные объявления",
+    "message": "Р—Р°Р±Р»РѕРєРёСЂРѕРІР°РЅРЅС‹Рµ РѕР±СЉСЏРІР»РµРЅРёСЏ",
     "description": "Stats: ads blocked"
   },
   "stats_trackers_blocked": {
-    "message": "Заблокированные трекеры",
+    "message": "Р—Р°Р±Р»РѕРєРёСЂРѕРІР°РЅРЅС‹Рµ С‚СЂРµРєРµСЂС‹",
     "description": "Stats: trackers blocked"
   },
   "stats_time_saved": {
-    "message": "Сэкономленное время",
+    "message": "РЎСЌРєРѕРЅРѕРјР»РµРЅРЅРѕРµ РІСЂРµРјСЏ",
     "description": "Stats: time saved"
   },
   "stats_data_anonymized": {
-    "message": "Обезличенные данные",
+    "message": "РћР±РµР·Р»РёС‡РµРЅРЅС‹Рµ РґР°РЅРЅС‹Рµ",
     "description": "Stats: data points anonymised"
   },
   "wtm_popup_header_title": {
-    "message": "Общее число трекеров",
+    "message": "РћР±С‰РµРµ С‡РёСЃР»Рѕ С‚СЂРµРєРµСЂРѕРІ",
     "description": "Whotracks.me popup header title"
   },
   "wtm_popup_header_description": {
-    "message": "Сгруппировано по категориям",
+    "message": "РЎРіСЂСѓРїРїРёСЂРѕРІР°РЅРѕ РїРѕ РєР°С‚РµРіРѕСЂРёСЏРј",
     "description": "Whotracks.me popup header description"
   },
   "wtm_popup_wtm_link": {
-    "message": "Отчёт о статистике",
+    "message": "РћС‚С‡С‘С‚ Рѕ СЃС‚Р°С‚РёСЃС‚РёРєРµ",
     "description": "Whotracks.me website link"
   },
   "wtm_category_advertising": {
-    "message": "Реклама",
+    "message": "Р РµРєР»Р°РјР°",
     "description": "WhoTracks.me category name"
   },
   "wtm_category_site_analytics": {
-    "message": "Аналитика сайта",
+    "message": "РђРЅР°Р»РёС‚РёРєР° СЃР°Р№С‚Р°",
     "description": "WhoTracks.me category name"
   },
   "wtm_category_cdn": {
-    "message": "Сети доставки контента",
+    "message": "РЎРµС‚Рё РґРѕСЃС‚Р°РІРєРё РєРѕРЅС‚РµРЅС‚Р°",
     "description": "WhoTracks.me category name"
   },
   "wtm_category_audio_video_player": {
-    "message": "Аудио/видео плееры",
+    "message": "РђСѓРґРёРѕ/РІРёРґРµРѕ РїР»РµРµСЂС‹",
     "description": "WhoTracks.me category name"
   },
   "wtm_category_misc": {
-    "message": "Остальные",
+    "message": "РћСЃС‚Р°Р»СЊРЅС‹Рµ",
     "description": "WhoTracks.me category name"
   },
   "wtm_category_essential": {
-    "message": "Важные",
+    "message": "Р’Р°Р¶РЅС‹Рµ",
     "description": "WhoTracks.me category name"
   },
   "wtm_category_social_media": {
-    "message": "Социальные сети",
+    "message": "РЎРѕС†РёР°Р»СЊРЅС‹Рµ СЃРµС‚Рё",
     "description": "WhoTracks.me category name"
   },
   "wtm_category_hosting": {
-    "message": "Трекеры владельца сайта",
+    "message": "РўСЂРµРєРµСЂС‹ РІР»Р°РґРµР»СЊС†Р° СЃР°Р№С‚Р°",
     "description": "WhoTracks.me category name"
   },
   "wtm_category_customer_interaction": {
-    "message": "Взаимодействие с пользователем",
+    "message": "Р’Р·Р°РёРјРѕРґРµР№СЃС‚РІРёРµ СЃ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј",
     "description": "WhoTracks.me category name"
   },
   "wtm_category_pornvertising": {
-    "message": "Порно-реклама",
+    "message": "РџРѕСЂРЅРѕ-СЂРµРєР»Р°РјР°",
     "description": "WhoTracks.me category name"
   },
   "wtm_category_extensions": {
-    "message": "Расширения",
+    "message": "Р Р°СЃС€РёСЂРµРЅРёСЏ",
     "description": "WhoTracks.me category name"
   },
   "wtm_category_comments": {
-    "message": "Комментарии",
+    "message": "РљРѕРјРјРµРЅС‚Р°СЂРёРё",
     "description": "WhoTracks.me category name"
   },
   "wtm_category_unknown": {
-    "message": "Неизвестные",
+    "message": "РќРµРёР·РІРµСЃС‚РЅС‹Рµ",
     "description": "WhoTracks.me category name"
   }
 }
