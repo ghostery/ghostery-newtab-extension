@@ -1,7 +1,7 @@
 {
   "name": "ghostery-newtab-extension",
   "version": "1.0.0",
-  "description": "Ghostery Dawn New Tab Page",
+  "description": "Ghostery Private Browser New Tab Page",
   "license": "MPL-2.0",
   "scripts": {
     "build": "web-ext build",
@@ -11,7 +11,7 @@
   "webExt": {
     "sourceDir": "./src/",
     "run": {
-      "firefox": "firefoxdeveloperedition"
+      "firefox": "nightly"
     }
   },
   "repository": {
