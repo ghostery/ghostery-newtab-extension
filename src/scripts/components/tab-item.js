@@ -1,13 +1,10 @@
-import { html } from '../../libs/hybrids/index.js';
+import { define, html } from '../../libs/hybrids/index.js';
 
-export default {
+export default define({
+  tag: 'tab-item',
   active: false,
-  // Renders children (<slot/>) if active is set to true
-  render: ({ active }) =>
-    html`
-      ${active &&
-        html`
-          <slot></slot>
-        `}
-    `
-};
+  render: () => html`<slot></slot>`.css`
+    :host { display: none }
+    :host([active]) { display: block }
+  `,
+});

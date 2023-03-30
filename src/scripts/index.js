@@ -99,15 +99,6 @@ async function setupSearchBar() {
     $searchBarWrapper.appendChild($searchBar);
   }
 }
-
-async function loadStats() {
-  // Select random box
-  const boxes = document.querySelectorAll('tab-item');
-  const index = Math.floor(Math.random() * boxes.length);
-  boxes[index].active = true;
-  document.querySelector('tab-group').index = index;
-}
-
 function setup() {
   document.querySelector('#second-row-header').addEventListener('click', () => {
     document.querySelector('#private-sponsored-links-modal').hidden = false;
@@ -115,7 +106,6 @@ function setup() {
   updateAccountButton();
   loadTopSites();
   setupSearchBar();
-  loadStats();
 }
 
 if (document.readyState === 'complete' || document.readyState === 'interactive') {

@@ -1,4 +1,4 @@
-import { html, svg } from '../../libs/hybrids/index.js';
+import { define, html, svg } from '../../libs/hybrids/index.js';
 
 import { WTM_CATEGORY_COLORS, describeArc } from '../utils/wtm-utils.js';
 
@@ -38,34 +38,10 @@ function formatBigNumber(num)  {
   return number;
 }
 
-export default {
-  chartData: null,
-
+export default define({
+  tag: 'wtm-chart',
+  chartData: undefined,
   render: ({ chartData }) => html`
-    <style>
-      .chart {
-        position: relative;
-        width: 84px;
-        display: flex;
-        flex-grow: 0;
-        flex-shrink: 1;
-      }
-
-      .count {
-        font-size: 15px;
-        color: var(--header);
-        font-weight: 600;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        text-align: center;
-        left: 0;
-        top: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    </style>
     <div class="chart">
       <svg
         id='circle'
@@ -96,5 +72,28 @@ export default {
       </svg>
       <span class="count">${formatBigNumber(chartData.sum)}</span>
     </div>
+  `.css`
+     .chart {
+      position: relative;
+      width: 84px;
+      display: flex;
+      flex-grow: 0;
+      flex-shrink: 1;
+    }
+
+    .count {
+      font-size: 15px;
+      color: var(--header);
+      font-weight: 600;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      left: 0;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   `,
-};
+});

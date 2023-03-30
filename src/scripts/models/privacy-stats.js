@@ -2,16 +2,13 @@ import { store } from '../../libs/hybrids/index.js';
 
 import { getDashboardStats } from '../utils/gbe.js';
 
-const Tracker = {
-  cat: "",
-  name: "",
-};
 
-const PrivacyStats = {
-  trackers: [Tracker],
+
+export default {
+  trackers: [{ cat: "", name: "" }],
   adsBlocked: 0,
   trackersBlocked: 0,
-  timeSaved: '',
+  timeSaved: 0,
   dataPointsAnonymized: 0,
 
   [store.connect] : {
@@ -28,35 +25,10 @@ const PrivacyStats = {
       return {
         adsBlocked,
         trackersBlocked,
-        timeSaved: formatTime(timeSaved),
+        timeSaved,
         dataPointsAnonymized,
         trackers: trackersDetailed,
       };
     }
   }
 };
-
-const parseTime = (ms) => {
-  const s = Math.floor(ms / 1000);
-  return {
-    h: Math.floor(s / 3600),
-    m: Math.floor(s / 60) % 60,
-    s: s % 60,
-  };
-};
-
-const formatTime = (ms) => {
-  if (!ms) { return `0 s`; }
-
-  const time = parseTime(ms);
-  let res = '';
-
-  res = time.h > 0 ? `${time.h} h` : '';
-  res += time.m > 0 ? ` ${time.m} m` : '';
-  if (res === '') {
-    res = `${time.s} s`;
-  }
-  return res.trim();
-};
-
-export default PrivacyStats;
