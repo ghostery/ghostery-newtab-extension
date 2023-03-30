@@ -1,19 +1,12 @@
-import { html, children } from '../../libs/hybrids/index.js';
+import { define, html, children } from '../../libs/hybrids/index.js';
 
 import TabItem from './tab-item.js';
-
-function updateActiveItem(host) {
-  host.items.forEach((item, index) => {
-    item.active = index === host.index;
-  });
-}
 
 function next(host) {
     host.index = host.index + 1;
     if (host.index === host.items.length) {
       host.index = 0;
     }
-    updateActiveItem(host);
 }
 
 function previous(host) {
@@ -21,56 +14,73 @@ function previous(host) {
     if (host.index < 0) {
       host.index = host.items.length - 1;
     }
-    updateActiveItem(host);
 }
 
-export default {
-  index: 0,
-  items: children(TabItem),
-
+export default define({
+  tag: 'tab-group',
+  items: {
+    ...children(TabItem),
+    observe(host, items) {
+      if (items.length === 0) {
+        host.hidden = true;
+      } else {
+        host.hidden = false;
+        const index = Math.floor(Math.random() * items.length);
+        host.index = index;
+      }
+    },
+  },
+  index: {
+    value: 0,
+    observe(host, value) {
+      host.items.forEach((item, index) => {
+        item.active = index === value;
+      });
+    },
+  },
   render: ({ items }) => html`
-    <style>
-      :host { display: block }
-      :host[hidden] { display: none }
-
-      .wrapper {
-        position: relative;
-      }
-
-      button.nav {
-        height: 30px;
-        width: 30px;
-        font-size: 20px;
-        line-height: 0;
-        border: none;
-        outline: none;
-        position: absolute;
-        top: calc(100% / 2 - 15px);
-        background-size: 24px 24px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-color: transparent;
-        cursor: pointer;
-        opacity: 0.5;
-      }
-      button.nav:hover {
-        opacity: 1;
-      }
-      .next {
-        background-image: url("/images/chevron-right.svg");
-        right: 10px;
-      }
-      .previous {
-        background-image: url("/images/chevron-left.svg");
-        left: 10px;
-      }
-    </style>
-
     <div class="wrapper">
-      <button class="nav next" onclick="${next}"></button>
-      <button class="nav previous" onclick="${previous}"></button>
+      ${items.length > 1 && html`
+        <button class="nav next" onclick="${next}"></button>
+        <button class="nav previous" onclick="${previous}"></button>
+      `}
 
       <slot></slot>
     </div>
+  `.css`
+    :host { display: block }
+    :host([hidden]) { display: none }
+
+    .wrapper {
+      position: relative;
+    }
+
+    button.nav {
+      height: 30px;
+      width: 30px;
+      font-size: 20px;
+      line-height: 0;
+      border: none;
+      outline: none;
+      position: absolute;
+      top: calc(100% / 2 - 15px);
+      background-size: 24px 24px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: transparent;
+      cursor: pointer;
+      opacity: 0.5;
+    }
+    button.nav:hover {
+      opacity: 1;
+    }
+    .next {
+      background-image: url("/images/chevron-right.svg");
+      right: 10px;
+    }
+    .previous {
+      background-image: url("/images/chevron-left.svg");
+      left: 10px;
+    }
   `
-};
+});
