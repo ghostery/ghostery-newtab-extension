@@ -59,7 +59,11 @@ function populateRow(row, dials) {
 }
 
 async function updateAccountButton() {
-  await currentUser.load();
+  try {
+    await currentUser.load();
+  } catch (e) {
+    console.warn('Could not load account info', e);
+  }
   if (currentUser.isLoggedIn) {
     document.querySelector('#account-button-in').style.visibility = 'visible';
   } else {
