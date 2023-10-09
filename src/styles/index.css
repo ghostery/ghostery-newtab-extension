@@ -1,0 +1,145 @@
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'), url('./fonts/Roboto-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'), url('./fonts/Roboto-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./fonts/Roboto-Medium.ttf');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: local('Roboto Condensed'), url('./fonts/RobotoCondensed-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: local('Roboto Condensed'), url('./fonts/RobotoCondensed-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  /* Colors */
+  --color-gray-900: #12121c;
+  --color-gray-800: #202225;
+  --color-gray-700: #2f3136;
+  --color-gray-600: #3f4146;
+  --color-gray-500: #636468;
+  --color-gray-400: #88898c;
+  --color-gray-300: #b9bbbe;
+  --color-gray-200: #d4d6d9;
+  --color-gray-100: #f2f4f7;
+  --color-white: white;
+
+  --color-black-alpha-40: rgba(0, 0, 0, 0.4);
+  --color-black-alpha-10: rgba(0, 0, 0, 0.1);
+
+  --color-white-alpha-70: rgba(255, 255, 255, 0.7);
+  --color-white-alpha-40: rgba(255, 255, 255, 0.4);
+  --color-white-alpha-20: rgba(255, 255, 255, 0.2);
+  --color-white-alpha-10: rgba(255, 255, 255, 0.1);
+
+  --color-primary-700: #0077cc;
+  --color-primary-500: #00aef0;
+  --color-primary-100: #ebf7fd;
+
+  --color-current: currentColor;
+
+  --background-gradient-main: linear-gradient(
+    353deg,
+    #f77e7a -0.16%,
+    #e27e95 11.77%,
+    #656cb1 50.15%,
+    #149af3 96.44%
+  );
+  --background-gradient-search: linear-gradient(
+    142deg,
+    #67a73a 15.08%,
+    #00aef0 75.66%
+  );
+
+  --font-family-display: 'Roboto Condensed', sans-serif;
+  --font-family-headline: var(--font-family-display);
+  --font-family-button: var(--font-family-display);
+
+  --font-family-body: 'Roboto', sans-serif;
+  --font-family-label: var(--font-family-body);
+
+  --font-display-2xl: 700 40px / 40px var(--font-family-display);
+  --font-display-xl: 700 32px / 32px var(--font-family-display);
+  --font-display-l: 700 32px / 32px var(--font-family-display);
+  --font-display-m: 700 24px / 24px var(--font-family-display);
+  --font-display-s: 700 20px / 20px var(--font-family-display);
+  --font-display-xs: 700 18px / 18px var(--font-family-display);
+  --font-display-2xs: 700 16px / 16px var(--font-family-display);
+
+  --font-headline-xl: 32px / 38px var(--font-family-headline);
+  --font-headline-l: 24px / 28px var(--font-family-headline);
+  --font-headline-m: 24px / 28px var(--font-family-headline);
+  --font-headline-s: 20px / 24px var(--font-family-headline);
+  --font-headline-xs: 20px / 24px var(--font-family-headline);
+  --font-headline-2xs: 16px / 20px var(--font-family-headline);
+
+  --font-button-m: 700 18px / 20px var(--font-family-button);
+  --font-button-s: 700 18px / 20px var(--font-family-button);
+
+  --font-label-2xl: 500 20px / 24px var(--font-family-label);
+  --font-label-xl: 500 18px / 22px var(--font-family-label);
+  --font-label-l: 500 16px / 20px var(--font-family-label);
+  --font-label-m: 500 14px / 18px var(--font-family-label);
+  --font-label-s: 500 12px / 16px var(--font-family-label);
+  --font-label-xs: 500 12px / 16px var(--font-family-label);
+
+  --font-body-2xl: 20px / 28px var(--font-family-body);
+  --font-body-xl: 18px / 26px var(--font-family-body);
+  --font-body-l: 16px / 24px var(--font-family-body);
+  --font-body-m: 14px / 20px var(--font-family-body);
+  --font-body-s: 12px / 18px var(--font-family-body);
+  --font-body-xs: 12px / 18px var(--font-family-body);
+
+  --text-transform-uppercase: uppercase;
+
+  min-height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 16px;
+  min-height: 100%;
+  color: var(--color-white);
+  font: var(--font-body-m);
+  background: var(--background-gradient-main);
+}
+
+@media screen and (min-width: 776px) {
+  body {
+    margin: 24px 16px;
+  }
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}

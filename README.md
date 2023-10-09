@@ -4,8 +4,8 @@ New Tab page in Ghostery Dawn is implemented as web-extension.
 
 ## Development
 
-Start extension in local Ghostery Dawn installation:
+Start extension:
 
 ```
-npm run start -- --firefox /Applications/Ghostery\ Browser.app/Contents/MacOS/Ghostery
+npm start [target=chrome|firefox]
 ```
