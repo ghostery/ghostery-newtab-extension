@@ -44,7 +44,7 @@ export default {
                 : 'signon'}.ghostery.com"
             >
               <gh-sidebar-item icon="user">
-                ${(store.ready(user) && user.name) || 'Sign in'}
+                ${(store.ready(user) && user.name) || html`Sign in`}
               </gh-sidebar-item>
             </gh-action>
             <gh-action href="https://www.ghostery.com/support/">
