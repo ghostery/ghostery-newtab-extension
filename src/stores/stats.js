@@ -18,14 +18,13 @@ export default {
   trackersDetailed: [
     {
       id: true,
-      name: '',
-      cat: '',
+      category: '',
     },
   ],
 
   categories: ({ trackersDetailed }) =>
     trackersDetailed
-      .map(({ cat }) => (labels[cat] ? cat : 'unidentified'))
+      .map(({ category }) => (labels[category] ? category : 'unidentified'))
       .sort((a, b) => labelsKeys.indexOf(a) - labelsKeys.indexOf(b)),
 
   groupedCategories: ({ categories }) => {

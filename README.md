@@ -7,5 +7,5 @@ New Tab page in Ghostery Dawn is implemented as web-extension.
 Start extension:
 
 ```
-npm start [target=chrome|firefox]
+npm start [target=firefox|chrome]
 ```
