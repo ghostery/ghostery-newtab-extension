@@ -20,11 +20,6 @@ function toggle(property) {
   };
 }
 
-function openPreferences() {
-  // TODO: Currently there is no way to open preferences
-  // from the page or background (using browser.tabs API)
-}
-
 export default {
   [router.connect]: { dialog: true },
   user: store(User),
@@ -90,14 +85,6 @@ export default {
                 value="${settings.privacyDigest}"
               ></gh-toggle>
             </gh-sidebar-item>
-          </gh-action>
-        </div>
-
-        <hr />
-
-        <div layout="column gap margin:1:1.5" layout@768px="margin:1:2.5">
-          <gh-action onclick="${openPreferences}">
-            <gh-sidebar-item icon="settings">More settings</gh-sidebar-item>
           </gh-action>
         </div>
       </gh-sidebar>
