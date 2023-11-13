@@ -22,14 +22,14 @@
   },
   "homepage": "https://github.com/ghostery/ghostery-newtab-extension#readme",
   "devDependencies": {
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
     "patch-package": "^8.0.0",
     "vite": "^4.4.9",
     "web-ext": "^7.8.0"
   },
   "dependencies": {
-    "eslint": "^8.50.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
     "hybrids": "^8.2.5"
   }
 }
