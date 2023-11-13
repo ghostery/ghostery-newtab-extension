@@ -5,6 +5,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 const WEB_EXT_TARGETS = {
   chrome: 'chromium',
   firefox: 'firefox-desktop',
+  ghostery: 'firefox-desktop',
 };
 
 const watch = process.argv.includes('--watch');
@@ -25,11 +26,19 @@ function WebExtPlugin() {
           'web-ext',
           '--',
           `--target=${WEB_EXT_TARGETS[target]}`,
+          target === 'ghostery'
+            ? '--firefox="/Applications/Ghostery Private Browser.app/Contents/MacOS/Ghostery"'
+            : '',
         ]);
 
         // pass data to console
         childProcess.stdout.on('data', function (data) {
           console.log(data.toString());
+        });
+
+        // log errors if any
+        childProcess.stderr.on('data', function (data) {
+          console.error(data.toString());
         });
       }
     },
