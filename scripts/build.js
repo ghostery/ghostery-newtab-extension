@@ -9,7 +9,7 @@ const WEB_EXT_TARGETS = {
 };
 
 const watch = process.argv.includes('--watch');
-const target = process.argv[watch ? 3 : 2] || 'firefox';
+const target = process.argv[watch ? 3 : 2] || 'ghostery';
 
 function WebExtPlugin() {
   let childProcess = null;
@@ -98,5 +98,5 @@ await build({
       },
     },
   },
-  plugins: [ManifestPlugin(), WebExtPlugin()],
+  plugins: [ManifestPlugin(), watch ? WebExtPlugin() : undefined],
 });
