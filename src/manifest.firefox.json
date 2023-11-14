@@ -1,0 +1,25 @@
+{
+  "default_locale": "en",
+  "manifest_version": 2,
+  "name": "Ghostery New Tab",
+  "permissions": [
+    "topSites",
+    "storage",
+    "search",
+    "https://*.ghostery.com/*"
+  ],
+  "icons": {
+    "16": "favicon.ico"
+  },
+  "chrome_url_overrides": {
+    "newtab": "./index.html"
+  },
+  "chrome_settings_overrides": {
+    "homepage": "index.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "newtab@ghostery.com"
+    }
+  }
+}

@@ -1,10 +1,9 @@
 [main]
 host = https://www.transifex.com
 
-[ghostery-new-tab.messages-json]
-file_filter = src/_locales/<lang>/messages.json
+[o:ghostery-inc:p:ghostery-desktop-browser:r:extension-messages-json]
+file_filter = src/public/_locales/<lang>/messages.json
 minimum_perc = 0
-source_file = src/_locales/en/messages.json
+source_file = src/public/_locales/en/messages.json
 source_lang = en
 type = CHROME
-

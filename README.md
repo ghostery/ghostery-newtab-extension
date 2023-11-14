@@ -1,11 +1,11 @@
-# Ghostery Dawn New Tab Page
+# Ghostery Private Browser New Tab Page
 
-New Tab page in Ghostery Dawn is implemented as web-extension.
+New Tab page in Ghostery Private Browser is implemented as a web extension.
 
 ## Development
 
-Start extension in local Ghostery Dawn installation:
+To start the extension run the following command (default target is Ghostery Private Browser located in `/Applications/Ghostery Private Browser.app`):
 
 ```
-npm run start -- --firefox /Applications/Ghostery\ Browser.app/Contents/MacOS/Ghostery
+npm start [target=ghostery|firefox|chrome]
 ```

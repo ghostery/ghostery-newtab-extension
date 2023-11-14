@@ -1,0 +1,145 @@
+{
+  "adult_advertising": {
+    "message": "Publicités réservées aux publics adultes",
+    "description": "Tracker category name"
+  },
+  "advertising": {
+    "message": "Publicité",
+    "description": "Tracker category name"
+  },
+  "all_trackers_blocked": {
+    "message": "All Trackers Blocked"
+  },
+  "all_trackers_modified": {
+    "message": "All Trackers Modified"
+  },
+  "all_trackers_seen": {
+    "message": "All trackers seen"
+  },
+  "audio_video_player": {
+    "message": "Lecteur audio/vidéo ",
+    "description": "Tracker category name"
+  },
+  "cdn": {
+    "message": "CDN",
+    "description": "Tracker category name"
+  },
+  "comments": {
+    "message": "Commentaires",
+    "description": "Tracker category name"
+  },
+  "consent_management": {
+    "message": "Gestion du consentement",
+    "description": "Tracker category name - includes trackers used for cookie consent management, allowing websites different levels of tracking user activity"
+  },
+  "customer_interaction": {
+    "message": "Interaction avec les clients",
+    "description": "Tracker category name"
+  },
+  "email": {
+    "message": "E-mail",
+    "description": "Tracker category name"
+  },
+  "essential": {
+    "message": "Essentiels",
+    "description": "Tracker category name"
+  },
+  "extensions": {
+    "message": "Extensions",
+    "description": "Tracker category name"
+  },
+  "feel_secure_online_and_empowered_to_take_action_in_protecting_your_digital_identity_with_news_curated_by_the_ghostery_team_": {
+    "message": "Feel secure online and empowered to take action in protecting your digital identity with news curated by the Ghostery team."
+  },
+  "hosting": {
+    "message": "Hébergement",
+    "description": "Tracker category name"
+  },
+  "individual_trackers_seen": {
+    "message": "Individual Trackers Seen"
+  },
+  "join_ghostery_s_privacy_digest": {
+    "message": "Join Ghostery's Privacy Digest"
+  },
+  "miscellaneous": {
+    "message": "Divers",
+    "description": "Tracker category name"
+  },
+  "more_settings": {
+    "message": "More settings"
+  },
+  "not_all_entities_listed_are_trackers__meaning_they_do_not_collect_your_personal_data_": {
+    "message": "Not all entities listed are trackers, meaning they do not collect your personal data."
+  },
+  "number_of_trackers_with_blocked_network_requests_": {
+    "message": "Nombre de mouchards avec des demandes de réseau bloquées."
+  },
+  "number_of_trackers_with_removed_cookies_or_fingerprints_": {
+    "message": "Nombre de mouchards avec des empreintes ou des cookies supprimés."
+  },
+  "off": {
+    "message": "désactivé"
+  },
+  "on": {
+    "message": "activé"
+  },
+  "other": {
+    "message": "Non-classés",
+    "description": "Tracker category name"
+  },
+  "privacy_digest": {
+    "message": "Privacy Digest"
+  },
+  "protection_statistics_and_privacy_information": {
+    "message": "Protection statistics and privacy information"
+  },
+  "receive_the_latest_privacy_news___tips__straight_to_your_inbox__every_two_weeks_": {
+    "message": "Receive the latest privacy news & tips, straight to your inbox. Every two weeks."
+  },
+  "search_privately": {
+    "message": "Search privately"
+  },
+  "share_feedback": {
+    "message": "Share feedback"
+  },
+  "show_ghostery_stats": {
+    "message": "Show Ghostery Stats"
+  },
+  "show_previous_editions": {
+    "message": "Show previous editions"
+  },
+  "show_privacy_digest": {
+    "message": "Show Privacy Digest"
+  },
+  "show_private_sponsored_links": {
+    "message": "Show Private Sponsored Links"
+  },
+  "show_search_bar": {
+    "message": "Show Search Bar"
+  },
+  "show_top_sites": {
+    "message": "Show Top Sites"
+  },
+  "sign_in": {
+    "message": "Connexion"
+  },
+  "site_analytics": {
+    "message": "Outils d'analyse de sites web",
+    "description": "Tracker category name"
+  },
+  "social_media": {
+    "message": "Réseaux sociaux",
+    "description": "Tracker category name"
+  },
+  "subscribe": {
+    "message": "s’abonner"
+  },
+  "telemetry": {
+    "message": "Télémétrie",
+    "description": "Tracker category name"
+  },
+  "unidentified": {
+    "message": "Non identifié",
+    "description": "Tracker category name"
+  }
+}
