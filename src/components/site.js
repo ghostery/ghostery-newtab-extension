@@ -22,10 +22,10 @@ export default {
       <div id="img" layout="row center size:6 ::color:gray-900 ::font:label-xl">
         ${site.favicon
           ? html`<img src="${site.favicon}" layout="block size:4" />`
-          : site.title.slice(0, 1).toUpperCase()}
+          : site.name.slice(0, 1).toUpperCase()}
       </div>
       <span layout="block:center self:stretch ::font:body-s">
-        ${site.title}
+        ${site.name}
       </span>
     </template>
   `.css`

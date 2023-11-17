@@ -15,6 +15,7 @@ import Article from '../stores/article.js';
 import Settings from '../stores/settings.js';
 import Site from '../stores/site.js';
 import Stats from '../stores/stats.js';
+import User from '../stores/user.js';
 
 import Sidebar from './sidebar.js';
 
@@ -23,8 +24,9 @@ export default {
   articles: store([Article]),
   settings: store(Settings),
   stats: store(Stats),
+  user: store(User),
   topSites: () => store.get([Site], 'top'),
-  content: ({ articles, settings, stats, topSites }) =>
+  content: ({ articles, settings, stats, topSites, user }) =>
     store.ready(settings)
       ? html`
           <template layout="column gap:4" layout@768px="gap:5">
@@ -64,7 +66,7 @@ export default {
             ${settings.sites &&
             html`
               <div
-                layout="row gap:0.5 overflow:x:scroll basis:auto margin:-1:-2:-2 padding:1:1.5:2"
+                layout="row gap:0.5 overflow:x:auto basis:auto margin:-1:-2:-2 padding:1:1.5:2 ::scrollbar-width:none"
                 layout@768px="gap:3 padding:1:4.5:2"
               >
                 <div layout="grow shrink"></div>
@@ -121,20 +123,23 @@ export default {
                     <gh-button>Show previous editions</gh-button>
                   </gh-action>
                 </div>
-                <gh-box layout="column gap:2" layout@768px="row items:center">
-                  <div layout="column gap:0.5 grow">
-                    <h3 layout="::font:display-l ::text-transform:uppercase">
-                      Join Ghostery's Privacy Digest
-                    </h3>
-                    <p layout="::font:body-xl">
-                      Receive the latest privacy news & tips, straight to your
-                      inbox. Every two weeks.
-                    </p>
-                  </div>
-                  <gh-action href="https://www.ghostery.com/privacy-digest">
-                    <gh-button>Subscribe</gh-button>
-                  </gh-action>
-                </gh-box>
+                ${store.error(user) &&
+                html`
+                  <gh-box layout="column gap:2" layout@768px="row items:center">
+                    <div layout="column gap:0.5 grow">
+                      <h3 layout="::font:display-l ::text-transform:uppercase">
+                        Join Ghostery's Privacy Digest
+                      </h3>
+                      <p layout="::font:body-xl">
+                        Receive the latest privacy news & tips, straight to your
+                        inbox. Every two weeks.
+                      </p>
+                    </div>
+                    <gh-action href="https://www.ghostery.com/privacy-digest">
+                      <gh-button>Subscribe</gh-button>
+                    </gh-action>
+                  </gh-box>
+                `}
               </section>
             `}
           </template>
