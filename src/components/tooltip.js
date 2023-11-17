@@ -16,7 +16,7 @@ const timeouts = new WeakMap();
 let activeTooltip = null;
 
 export default {
-  autohide: 2,
+  autohide: 5,
   wrap: false,
   position: 'top', // top, bottom
   show: {

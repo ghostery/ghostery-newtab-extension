@@ -16,6 +16,7 @@ export default {
   title: '',
   url: '',
   favicon: '',
+  name: (site) => site.title || new URL(site.url).hostname,
   [store.connect]: {
     async list(type) {
       switch (type) {
@@ -33,7 +34,9 @@ export default {
             })),
           ].filter(({ url }) => !userTopSites.some((s) => s.url === url));
 
-          return [...userTopSites, ...newtabSites].slice(0, 8);
+          return [...userTopSites, ...newtabSites]
+            .slice(0, 8)
+            .filter(({ url }) => url);
         }
         default:
           throw Error(`Unknown site list type: ${type}`);
