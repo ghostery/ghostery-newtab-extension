@@ -17,7 +17,7 @@ export default {
     <template layout="column gap:0.5">
       <div
         id="img"
-        style="${{ backgroundImage: `url("${article.image_url}")` }}"
+        style="${{ backgroundImage: `url("${article.proxied_image_url}")` }}"
         layout="block ratio:16/9"
       ></div>
       <div layout="column padding:0.5" layout@776px="padding:1.5 gap">
