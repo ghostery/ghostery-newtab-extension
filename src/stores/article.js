@@ -20,6 +20,7 @@ export default {
   description: '',
   url: '',
   image_url: '',
+  proxied_image_url: '',
   hostname: ({ url }) => new URL(url).hostname,
   [store.connect]: {
     cache: true,
