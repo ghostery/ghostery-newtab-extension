@@ -11,6 +11,11 @@ const WEB_EXT_TARGETS = {
 const watch = process.argv.includes('--watch');
 const target = process.argv[watch ? 3 : 2] || 'ghostery';
 
+if (!WEB_EXT_TARGETS[target]) {
+  console.error('Specified target is not supported: ', target);
+  process.exit(1);
+}
+
 function WebExtPlugin() {
   let childProcess = null;
 
@@ -25,10 +30,12 @@ function WebExtPlugin() {
           'run',
           'web-ext',
           '--',
-          `--target=${WEB_EXT_TARGETS[target]}`,
-          target === 'ghostery'
-            ? '--firefox="/Applications/Ghostery Private Browser.app/Contents/MacOS/Ghostery"'
-            : '',
+          ...(target === 'ghostery'
+            ? [
+                '--target=firefox-desktop',
+                '--firefox="/Applications/Ghostery Private Browser.app/Contents/MacOS/Ghostery"',
+              ]
+            : [`--target=${WEB_EXT_TARGETS[target]}`]),
         ]);
 
         // pass data to console
