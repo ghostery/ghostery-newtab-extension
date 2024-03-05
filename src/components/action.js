@@ -12,7 +12,29 @@
 import { html } from 'hybrids';
 
 export default {
-  href: '',
+  href: {
+    value: '',
+    ...(__PLATFORM__ !== 'chrome'
+      ? {
+          connect(host, key) {
+            if (host[key]) {
+              host.tabIndex = 0;
+
+              const cb = (e) => {
+                if (e.key === 'Enter') {
+                  host.render().querySelector('a').click();
+                }
+              };
+              host.addEventListener('keydown', cb);
+
+              return () => {
+                host.removeEventListener('keydown', cb);
+              };
+            }
+          },
+        }
+      : {}),
+  },
   render: ({ href }) => html`
     <template layout="block">
       ${href
