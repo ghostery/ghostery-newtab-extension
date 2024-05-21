@@ -15,14 +15,14 @@ import * as trackers from '../utils/trackers.js';
 
 export default {
   stats: undefined,
-  popover: false,
-  render: ({ stats, popover }) => html`
+  details: false,
+  render: ({ stats, details }) => html`
     <template layout="relative row width:full::375px">
       <gh-box
         layout="row items:center gap:2 padding:1.5 grow"
         layout@768px="padding:1.5:2"
       >
-        <gh-action onclick="${html.set('popover', !popover)}">
+        <gh-action onclick="${html.set('details', !details)}">
           <div id="wheel" layout="row center size:10">
             <gh-wheel
               categories="${stats.categories}"
@@ -64,10 +64,10 @@ export default {
         </div>
       </gh-box>
       <div
-        id="popover"
+        id="details"
         layout="absolute top:full left right column gap:2 padding:2 margin:top:0.5"
         layout[hidden]="hidden"
-        hidden="${!popover}"
+        hidden="${!details}"
       >
         <div layout="row items:center gap">
           <div layout="row gap:0.5 grow ::font:label-l ::color:gray-900">
@@ -77,7 +77,7 @@ export default {
               your personal data.
             </gh-info>
           </div>
-          <gh-action onclick="${html.set('popover', !popover)}">
+          <gh-action onclick="${html.set('details', !details)}">
             <gh-icon-button type="stats" icon="close"></gh-icon-button>
           </gh-action>
         </div>
@@ -123,7 +123,7 @@ export default {
       padding: 0;
     }
 
-    #popover {
+    #details {
       background: var(--color-white);
       border-radius: 16px;
       box-shadow: 30px 60px 160px 0px rgba(32, 44, 68, 0.40);
