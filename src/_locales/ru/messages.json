@@ -1,0 +1,90 @@
+﻿{
+  "survey": {
+    "message": "Оставить отзыв",
+    "description": "Survey link"
+  },
+  "stats_header": {
+    "message": "Статистика Ghostery",
+    "description": "Header over stats"
+  },
+  "stats_ads_blocked": {
+    "message": "Заблокированные объявления",
+    "description": "Stats: ads blocked"
+  },
+  "stats_trackers_blocked": {
+    "message": "Заблокированные трекеры",
+    "description": "Stats: trackers blocked"
+  },
+  "stats_time_saved": {
+    "message": "Сэкономленное время",
+    "description": "Stats: time saved"
+  },
+  "stats_data_anonymized": {
+    "message": "Обезличенные данные",
+    "description": "Stats: data points anonymised"
+  },
+  "wtm_popup_header_title": {
+    "message": "Общее число трекеров",
+    "description": "Whotracks.me popup header title"
+  },
+  "wtm_popup_header_description": {
+    "message": "Сгруппировано по категориям",
+    "description": "Whotracks.me popup header description"
+  },
+  "wtm_popup_wtm_link": {
+    "message": "Отчёт о статистике",
+    "description": "Whotracks.me website link"
+  },
+  "wtm_category_advertising": {
+    "message": "Реклама",
+    "description": "WhoTracks.me category name"
+  },
+  "wtm_category_site_analytics": {
+    "message": "Аналитика сайта",
+    "description": "WhoTracks.me category name"
+  },
+  "wtm_category_cdn": {
+    "message": "Сети доставки контента",
+    "description": "WhoTracks.me category name"
+  },
+  "wtm_category_audio_video_player": {
+    "message": "Аудио/видео плееры",
+    "description": "WhoTracks.me category name"
+  },
+  "wtm_category_misc": {
+    "message": "Остальные",
+    "description": "WhoTracks.me category name"
+  },
+  "wtm_category_essential": {
+    "message": "Важные",
+    "description": "WhoTracks.me category name"
+  },
+  "wtm_category_social_media": {
+    "message": "Социальные сети",
+    "description": "WhoTracks.me category name"
+  },
+  "wtm_category_hosting": {
+    "message": "Трекеры владельца сайта",
+    "description": "WhoTracks.me category name"
+  },
+  "wtm_category_customer_interaction": {
+    "message": "Взаимодействие с пользователем",
+    "description": "WhoTracks.me category name"
+  },
+  "wtm_category_pornvertising": {
+    "message": "Порно-реклама",
+    "description": "WhoTracks.me category name"
+  },
+  "wtm_category_extensions": {
+    "message": "Расширения",
+    "description": "WhoTracks.me category name"
+  },
+  "wtm_category_comments": {
+    "message": "Комментарии",
+    "description": "WhoTracks.me category name"
+  },
+  "wtm_category_unknown": {
+    "message": "Неизвестные",
+    "description": "WhoTracks.me category name"
+  }
+}
