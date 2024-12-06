@@ -1,6 +1,6 @@
 {
   "name": "ghostery-newtab-extension",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Ghostery Private Browser New Tab Page",
   "license": "MPL-2.0",
   "type": "module",

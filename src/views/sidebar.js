@@ -77,15 +77,6 @@ export default {
               <gh-toggle slot="suffix" value="${settings.sites}"></gh-toggle>
             </gh-sidebar-item>
           </gh-action>
-          <gh-action onclick="${toggle('privacyDigest')}">
-            <gh-sidebar-item>
-              Show Privacy Digest
-              <gh-toggle
-                slot="suffix"
-                value="${settings.privacyDigest}"
-              ></gh-toggle>
-            </gh-sidebar-item>
-          </gh-action>
         </div>
       </gh-sidebar>
     </template>

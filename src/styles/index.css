@@ -118,6 +118,7 @@ html {
   --font-body-xs: 12px / 18px var(--font-family-body);
 
   --text-transform-uppercase: uppercase;
+
   --scrollbar-width-none: none;
 
   min-height: 100%;
@@ -136,6 +137,12 @@ body {
   body {
     margin: 24px 16px;
   }
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
 }
 
 h1,
