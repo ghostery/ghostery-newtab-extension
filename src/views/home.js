@@ -11,7 +11,6 @@
 
 import { html, router, store } from 'hybrids';
 
-import Article from '../stores/article.js';
 import Settings from '../stores/settings.js';
 import Site from '../stores/site.js';
 import Stats from '../stores/stats.js';
@@ -21,12 +20,11 @@ import Sidebar from './sidebar.js';
 
 export default {
   [router.connect]: { stack: [Sidebar] },
-  articles: store([Article]),
   settings: store(Settings),
   stats: store(Stats),
   user: store(User),
   topSites: () => store.get([Site], 'top'),
-  content: ({ articles, settings, stats, topSites, user }) =>
+  content: ({ settings, stats, topSites }) =>
     store.ready(settings)
       ? html`
           <template layout="column gap:4" layout@768px="gap:5">
@@ -59,6 +57,28 @@ export default {
               </gh-action>
             </header>
 
+            <gh-box
+              layout="self:center block:center column center gap:2 width:::60"
+            >
+              <gh-icon name="warning" layout="width:8"></gh-icon>
+              <h1 layout="::font:display-m">
+                Ghostery Private Browser will be discontinued
+              </h1>
+              <p layout="::font:body-l">
+                <a
+                  href="https://www.ghostery.com/blog/ghostery-private-browser-discontinued"
+                  target="_blank"
+                  layout="::color:white"
+                  >Click here</a
+                >
+                for more information and recommendations.
+              </p>
+              <div layout="::font:body-s">
+                <p>Thank you!</p>
+                <p>Ghostery Team</p>
+              </div>
+            </gh-box>
+
             ${settings.stats &&
             store.ready(stats) &&
             !!stats.categories.length &&
@@ -80,67 +100,6 @@ export default {
                 )}
                 <div layout="grow shrink"></div>
               </div>
-            `}
-            ${settings.privacyDigest &&
-            store.ready(topSites, articles) &&
-            html`
-              <section
-                layout="column gap:1.5 width:full::1200px margin:0:auto"
-                layout@768px="gap:3 padding:0:3"
-              >
-                <div layout="column gap:0.5 width:::700px">
-                  <h2
-                    layout="::font:label-m"
-                    layout@768px="::color:white-alpha-70"
-                  >
-                    Privacy Digest
-                  </h2>
-                  <p layout="hidden ::font:label-2xl" layout@768px="block">
-                    Feel secure online and empowered to take action in
-                    protecting your digital identity with news curated by the
-                    Ghostery team.
-                  </p>
-                </div>
-                <div
-                  layout="grid:2 gap:2"
-                  layout@776px="gap:3"
-                  layout@992px="grid:3"
-                >
-                  ${articles.map(
-                    (article) => html`
-                      <gh-action href="${article.url}">
-                        <gh-article article="${article}"></gh-article>
-                      </gh-action>
-                    `,
-                  )}
-                </div>
-                <div layout="row center">
-                  <gh-action
-                    href="https://www.ghostery.com/privacy-digest/editions"
-                    layout="grow"
-                    layout@768px="grow:0"
-                  >
-                    <gh-button>Show previous editions</gh-button>
-                  </gh-action>
-                </div>
-                ${store.error(user) &&
-                html`
-                  <gh-box layout="column gap:2" layout@768px="row items:center">
-                    <div layout="column gap:0.5 grow">
-                      <h3 layout="::font:display-l ::text-transform:uppercase">
-                        Join Ghostery's Privacy Digest
-                      </h3>
-                      <p layout="::font:body-xl">
-                        Receive the latest privacy news & tips, straight to your
-                        inbox. Every two weeks.
-                      </p>
-                    </div>
-                    <gh-action href="https://www.ghostery.com/privacy-digest">
-                      <gh-button>Subscribe</gh-button>
-                    </gh-action>
-                  </gh-box>
-                `}
-              </section>
             `}
           </template>
         `
