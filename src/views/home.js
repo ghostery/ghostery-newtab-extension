@@ -69,9 +69,8 @@ export default {
                   href="https://www.ghostery.com/blog/ghostery-private-browser-discontinued"
                   target="_blank"
                   layout="::color:white"
+                  >Click here</a
                 >
-                  Click here
-                </a>
                 for more information and recommendations.
               </p>
               <div layout="::font:body-s">
